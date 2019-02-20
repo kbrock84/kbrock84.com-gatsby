@@ -27,7 +27,7 @@ class MenuTreeItem extends Component {
           onClick={this.toggleCollapse.bind(this)}
           color={`rgba(${255 - this.props.depth * 70},100, 255)`}
         >
-          {this.props.item.heading}
+          {this.props.item.title}
         </MenuItemWrapper>
         <div
           style={{

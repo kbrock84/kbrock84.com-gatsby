@@ -29,18 +29,23 @@ class Body extends Component {
       content: "",
       mobileLayout: true
     };
+    this.throttled = false;
   }
 
   setLayout() {
-    if (window.innerWidth < 658 && !this.state.mobileLayout) {
-      this.setState({ mobileLayout: true });
-    } else if (window.innerWidth >= 658 && this.state.mobileLayout) {
-      this.setState({ mobileLayout: false });
-    }
+    setTimeout(() => {
+      if (window.innerWidth < 766 && !this.state.mobileLayout) {
+        this.setState({ mobileLayout: true });
+      } else if (window.innerWidth >= 766 && this.state.mobileLayout) {
+        this.setState({ mobileLayout: false });
+      }
+      this.throttled = false;
+    }, 200);
+    this.throttled = true;
   }
 
   componentDidMount() {
-    this.setState({ loading: true, mobileLayout: window.innerWidth < 658 });
+    this.setState({ loading: true, mobileLayout: window.innerWidth < 766 });
     getBlog(this.state.contentId, blog =>
       this.setState({
         content: blog,
