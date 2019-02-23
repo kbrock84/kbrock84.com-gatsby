@@ -36,19 +36,20 @@ class MainMenu extends Component {
           collapsed={!this.state.visible}
           mobile={this.props.mobile}
         >
-          {this.props.menuItems.map((item, i) => {
-            return (
-              <>
-                <MenuTreeItem
-                  item={item}
-                  width={this.props.width}
-                  key={i}
-                  depth={0}
-                  fontColor={"#fefefe"}
-                />
-              </>
-            );
-          })}
+          {this.props.menuItems
+            ? this.props.menuItems.map((item, i) => (
+                <>
+                  <MenuTreeItem
+                    item={item.category}
+                    childItems={item.children}
+                    width={this.props.width}
+                    key={i}
+                    depth={0}
+                    fontColor={"#fefefe"}
+                  />
+                </>
+              ))
+            : null}
         </AllItemsContainer>
         <NavButton
           onClick={this.toggleMenuVisibility.bind(this)}

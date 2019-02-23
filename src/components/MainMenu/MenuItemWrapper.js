@@ -4,6 +4,7 @@ const MenuItemWrapper = styled.div`
   font-size: 1.4em;
   font-weight: 400;
   color: ${props => props.color};
+  cursor: pointer;
 `;
 
 export default MenuItemWrapper;

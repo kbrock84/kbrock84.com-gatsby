@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import Card from "../Card/Card";
-import MenuChildWrapper from "./MenuChildWrapper";
-import HVLine from "../BlankCanvas/HVLine";
 import MenuItemWrapper from "./MenuItemWrapper";
-
+import MainMenuLink from "./MainMenuLink";
 class MenuTreeItem extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +22,7 @@ class MenuTreeItem extends Component {
       <>
         <MenuItemWrapper
           onClick={this.toggleCollapse.bind(this)}
-          color={`rgba(${255 - this.props.depth * 70},100, 255)`}
+          color={`rgba(255, 100, 255)`}
         >
           {this.props.item.title}
         </MenuItemWrapper>
@@ -36,17 +33,13 @@ class MenuTreeItem extends Component {
         >
           {this.state.collapsed
             ? null
-            : this.props.item.children.map((child, j) => {
+            : this.props.childItems.map(child => {
                 return (
-                  <div>
-                    <MenuChildWrapper
-                      child={child}
-                      key={j}
-                      width={this.props.width - this.state.padding}
-                      depth={this.props.depth + 1}
-                      fontColor={this.props.fontColor}
-                    />
-                  </div>
+                  <MenuItemWrapper>
+                    <MainMenuLink color={`rgba(200, 180, 255)`} to={child.path}>
+                      {child.title}
+                    </MainMenuLink>
+                  </MenuItemWrapper>
                 );
               })}
         </div>

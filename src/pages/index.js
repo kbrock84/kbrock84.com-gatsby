@@ -1,24 +1,67 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
-import BaseStructure from "../components/BaseStructure/BaseStructure";
+import { graphql, StaticQuery } from "gatsby";
+import Home from "../components/Home/Home";
+import IndexPageContainer from "../components/IndexPageContainer/IndexPageContainer";
 
 //import SEO from "../components/seo";
 
-const IndexPage = () => <BaseStructure blogPosts={BlogPostList} />;
+// allImageSharp {
+//   edges {
+//     node {
+//       ... on ImageSharp {
+//         resize(width: 250, height: 250, grayscale: false) {
+//           src
+//         }
+//       }
+//     }
+//   }
+// }
 
-export default IndexPage;
+const IndexPage = props => (
+  <StaticQuery
+    query={graphql`
+      {
+        allImageSharp(
+          filter: {
+            fixed: { originalName: { eq: "sticky-bot_cropped_edited2.jpg" } }
+          }
+        ) {
+          edges {
+            node {
+              ... on ImageSharp {
+                resize(width: 300, height: 300) {
+                  src
+                }
+              }
+            }
+          }
+        }
 
-const BlogPostList = graphql`
-  {
-    allMarkdownRemark(limit: 1000) {
-      edges {
-        node {
-          frontmatter {
-            title
-            path
+        allPostCategoriesJson {
+          edges {
+            node {
+              label
+              link
+            }
           }
         }
       }
-    }
-  }
-`;
+    `}
+    render={data => {
+      const menuItems = data.allPostCategoriesJson.edges.map(e => ({
+        label: e.node.label,
+        link: e.node.link
+      }));
+      return (
+        <IndexPageContainer>
+          <Home
+            menuImage={data.allImageSharp.edges[0].node.resize.src}
+            homeMenuItems={menuItems}
+          />
+        </IndexPageContainer>
+      );
+    }}
+  />
+);
+
+export default IndexPage;

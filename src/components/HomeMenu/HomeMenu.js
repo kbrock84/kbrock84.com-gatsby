@@ -5,13 +5,12 @@ import HomeMenuItem from "./HomeMenuItem";
 
 const HomeMenu = props => {
   return (
-    <HomeMenuWrapper>
+    <HomeMenuWrapper menuImage={props.menuImage}>
       <RadialRender r={250}>
         {React.Children.toArray(props.children).map(child => {
           return <HomeMenuItem>{child}</HomeMenuItem>;
         })}
       </RadialRender>
-      ;
     </HomeMenuWrapper>
   );
 };
