@@ -50,7 +50,6 @@ class Body extends Component {
             />
             <ContentContainer>{this.props.children}</ContentContainer>
           </>
-          )}
         </BodyWrapper>
       </>
     );
