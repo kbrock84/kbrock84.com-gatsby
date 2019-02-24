@@ -3,6 +3,7 @@ import MainMenuWrapper from "./MainMenuWrapper";
 import NavButton from "../NavButton/NavButton";
 import MenuTreeItem from "./MenuTreeItem";
 import AllItemsContainer from "./AllItemsContainer";
+import uuid from "uuid/v4";
 
 class MainMenu extends Component {
   constructor(props) {
@@ -38,16 +39,14 @@ class MainMenu extends Component {
         >
           {this.props.menuItems
             ? this.props.menuItems.map((item, i) => (
-                <>
-                  <MenuTreeItem
-                    item={item.category}
-                    childItems={item.children}
-                    width={this.props.width}
-                    key={i}
-                    depth={0}
-                    fontColor={"#fefefe"}
-                  />
-                </>
+                <MenuTreeItem
+                  item={item.category}
+                  childItems={item.children}
+                  width={this.props.width}
+                  key={uuid()}
+                  depth={0}
+                  fontColor={"#fefefe"}
+                />
               ))
             : null}
         </AllItemsContainer>

@@ -11,7 +11,7 @@ const AllItemsContainer = styled.div`
   background-color: #3f3f3f;
   overflow: ${props => (props.mobile ? "scroll" : "hidden")};
   font-size: ${props => (props.mobile ? "1.5em" : "1em")};
-  transition: height 500ms ease-in-out;
+  ${props => (props.mobile ? "transition: height 500ms ease-in-out;" : "")}
 `;
 
 export default AllItemsContainer;

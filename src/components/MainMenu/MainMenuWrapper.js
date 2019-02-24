@@ -11,7 +11,6 @@ const MainMenuWrapper = styled.div`
     ${props => (props.visible || props.mobile ? 0 : -1 * props.width + 70)}px,
     0
   );
-  ${props => console.log(props)}
 `;
 
 export default MainMenuWrapper;
