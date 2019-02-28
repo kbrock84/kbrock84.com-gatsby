@@ -45,7 +45,6 @@ class MenuTreeItem extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <>
         <MenuItemWrapper

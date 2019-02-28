@@ -9,15 +9,8 @@ class MainMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapsed: true,
       visible: props.visible
     };
-  }
-
-  toggleCollapse() {
-    this.setState(prevState => {
-      return { collapsed: !prevState.collapsed };
-    });
   }
 
   toggleMenuVisibility() {
@@ -43,7 +36,7 @@ class MainMenu extends Component {
                   item={item.category}
                   childItems={item.children}
                   width={this.props.width}
-                  key={uuid()}
+                  key={`${item.category}-${i}`}
                   depth={0}
                   fontColor={"#fefefe"}
                 />
