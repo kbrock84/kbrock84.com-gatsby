@@ -30,12 +30,12 @@ export const BaseStructure = props => {
           }
         }
       `}
-      render={data => render(data, props.children)}
+      render={data => render(props.title, data, props.children)}
     />
   );
 };
 
-const render = (data, childComponents) => {
+const render = (title, data, childComponents) => {
   {
     const categories = data.allPostCategoriesJson.edges.map(e => ({
       title: e.node.label
@@ -56,7 +56,9 @@ const render = (data, childComponents) => {
     return (
       <>
         <BaseStructureWrappper>
-          <Body categories={postData}>{childComponents}</Body>
+          <Body title={title} categories={postData}>
+            {childComponents}
+          </Body>
         </BaseStructureWrappper>
       </>
     );

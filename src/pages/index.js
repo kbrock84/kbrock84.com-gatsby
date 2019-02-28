@@ -5,18 +5,6 @@ import IndexPageContainer from "../components/IndexPageContainer/IndexPageContai
 
 //import SEO from "../components/seo";
 
-// allImageSharp {
-//   edges {
-//     node {
-//       ... on ImageSharp {
-//         resize(width: 250, height: 250, grayscale: false) {
-//           src
-//         }
-//       }
-//     }
-//   }
-// }
-
 const IndexPage = props => (
   <StaticQuery
     query={graphql`
@@ -29,7 +17,7 @@ const IndexPage = props => (
           edges {
             node {
               ... on ImageSharp {
-                resize(width: 300, height: 300) {
+                resize(width: 500, height: 500) {
                   src
                 }
               }

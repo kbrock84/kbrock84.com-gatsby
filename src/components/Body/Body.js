@@ -48,7 +48,9 @@ class Body extends Component {
               visible={false}
               mobile={this.state.mobileLayout}
             />
-            <ContentContainer>{this.props.children}</ContentContainer>
+            <ContentContainer title={this.props.title}>
+              {this.props.children}
+            </ContentContainer>
           </>
         </BodyWrapper>
       </>

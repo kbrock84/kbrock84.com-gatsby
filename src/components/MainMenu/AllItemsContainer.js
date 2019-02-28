@@ -5,13 +5,16 @@ const AllItemsContainer = styled.div`
   top: 70px;
   left: 0;
   padding-left: 8px;
-  padding-top: 8px;
-  height: ${props => (props.collapsed && props.mobile ? "0px" : "85vh")};
+  height: ${props => (props.collapsed && props.mobile ? "0vh" : "85vh")};
   width: 100%;
-  background-color: #3f3f3f;
+  background-color: #1e1e1e;
+  opacity: ${props => (props.collapsed && !props.mobile ? "0" : "1")};
   overflow: ${props => (props.mobile ? "scroll" : "hidden")};
-  font-size: ${props => (props.mobile ? "1.5em" : "1em")};
-  ${props => (props.mobile ? "transition: height 500ms ease-in-out;" : "")}
+  font-size: ${props => (props.mobile ? "1.8em" : "1em")};
+  ${props =>
+    props.mobile
+      ? "transition: height 400ms ease-in-out"
+      : "transition: opacity 500ms ease-in-out;"}
 `;
 
 export default AllItemsContainer;

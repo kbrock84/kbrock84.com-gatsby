@@ -1,6 +1,6 @@
 ---
-path: "/second-post"
-title: "Second Blog Post with a Very Long Title Here"
+path: "/third-post"
+title: "Third Blog Post with a Very Long Title Here"
 category: "JavaScript"
 ---
 
