@@ -4,7 +4,7 @@ import MainMenuLink from "./MainMenuLink";
 import MenuListWrapper from "./MenuListWrapper";
 import RotateChild from "./RotateChild";
 import Poly from "react-svg-polygon";
-import { MenuContext } from "./MenuContext";
+import { PageContext } from "../../PageContext/PageContext";
 
 class MenuTreeItem extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class MenuTreeItem extends Component {
   }
 
   componentDidMount() {
-    if (this.context.firstRender) {
+    if (this.context.firstMenuRender) {
       let height = 0;
       let rect;
       this.childRefs.forEach(c => {
@@ -28,11 +28,11 @@ class MenuTreeItem extends Component {
 
       this.context.setMenuChildExpandedHeight(this.props.localStoreKey, height);
       this.context.setMenuChildExpandedState(this.props.localStoreKey);
-      this.context.setFirstRender();
+      this.context.setFirstMenuRender();
     }
   }
 
-  static contextType = MenuContext;
+  static contextType = PageContext;
 
   toggleCollapse() {
     this.context.setMenuChildExpandedState(this.props.localStoreKey);
@@ -40,7 +40,6 @@ class MenuTreeItem extends Component {
 
   render() {
     const childState = this.context.getMenuChildState(this.props.localStoreKey);
-    //console.log(childState);
     return (
       <>
         <MenuItemWrapper
@@ -65,7 +64,7 @@ class MenuTreeItem extends Component {
           padding={this.state.padding}
           collapsed={!childState.expanded}
           expandTo={childState.height}
-          firstRender={this.context.firstRender}
+          firstMenuRender={this.context.firstMenuRender}
         >
           {this.props.childItems.map((child, i) => {
             return (

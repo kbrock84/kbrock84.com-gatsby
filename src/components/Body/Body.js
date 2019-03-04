@@ -3,22 +3,22 @@ import { Component } from "react";
 import BodyWrapper from "./BodyWrapper";
 import MainMenu from "../MainMenu/MainMenu";
 import ContentContainer from "../ContentContainer/ContentContainer";
+import { PageContext } from "../../PageContext/PageContext";
 
 class Body extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      mobileLayout: true
-    };
     this.throttled = false;
   }
 
+  static contextType = PageContext;
+
   setLayout() {
     setTimeout(() => {
-      if (window.innerWidth < 766 && !this.state.mobileLayout) {
-        this.setState({ mobileLayout: true });
-      } else if (window.innerWidth >= 766 && this.state.mobileLayout) {
-        this.setState({ mobileLayout: false });
+      if (window.innerWidth < 766 && !this.context.mobile) {
+        this.context.setIsMobile(true);
+      } else if (window.innerWidth >= 766 && this.context.mobile) {
+        this.context.setIsMobile(false);
       }
       this.throttled = false;
     }, 200);
@@ -26,7 +26,8 @@ class Body extends Component {
   }
 
   componentDidMount() {
-    this.setState({ mobileLayout: window.innerWidth < 766 });
+    console.log(this.context);
+    this.context.setIsMobile(window.innerWidth < 766);
     window.addEventListener("resize", this.setLayout.bind(this));
   }
 
@@ -37,16 +38,9 @@ class Body extends Component {
   render() {
     return (
       <>
-        <BodyWrapper
-          isHome={this.state.isHome}
-          mobile={this.props.mobileLayout}
-        >
+        <BodyWrapper mobile={this.context.mobile}>
           <>
-            <MainMenu
-              width={268}
-              menuItems={this.props.categories}
-              mobileThreshold={766}
-            />
+            <MainMenu width={268} menuItems={this.props.categories} />
             <ContentContainer title={this.props.title}>
               {this.props.children}
             </ContentContainer>

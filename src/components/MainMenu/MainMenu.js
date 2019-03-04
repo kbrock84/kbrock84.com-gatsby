@@ -3,7 +3,7 @@ import MainMenuWrapper from "./MainMenuWrapper";
 import NavButton from "../NavButton/NavButton";
 import MenuTreeItem from "./MenuTreeItem";
 import AllItemsContainer from "./AllItemsContainer";
-import { MenuContext } from "./MenuContext";
+import { PageContext } from "../../PageContext/PageContext.js";
 
 class MainMenu extends Component {
   constructor(props) {
@@ -22,33 +22,7 @@ class MainMenu extends Component {
     });
   }
 
-  setLayout() {
-    setTimeout(() => {
-      if (
-        window.innerWidth < this.props.mobileThreshold &&
-        !this.context.mobile
-      ) {
-        this.context.setIsMobile(true);
-      } else if (
-        window.innerWidth >= this.props.mobileThreshold &&
-        this.context.mobile
-      ) {
-        this.context.setIsMobile(false);
-      }
-      this.throttled = false;
-    }, 200);
-    this.throttled = true;
-  }
-
-  componentDidMount() {
-    this.context.setIsMobile(window.innerWidth < this.props.mobileThreshold);
-    window.addEventListener("resize", this.setLayout.bind(this));
-  }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.setLayout);
-  }
-
-  static contextType = MenuContext;
+  static contextType = PageContext;
 
   render() {
     return (

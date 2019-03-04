@@ -8,9 +8,9 @@
 require("./prism.css");
 require("./base-styles.css");
 const React = require("react");
-const MenuContextProvider = require("./src/components/MainMenu/MenuContext")
-  .MenuContextProvider;
+const PageContextProvider = require("./src/PageContext/PageContext")
+  .PageContextProvider;
 
 export const wrapRootElement = ({ element }) => {
-  return <MenuContextProvider>{element}</MenuContextProvider>;
+  return <PageContextProvider>{element}</PageContextProvider>;
 };

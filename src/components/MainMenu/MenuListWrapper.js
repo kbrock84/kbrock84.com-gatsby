@@ -8,7 +8,7 @@ const MenuListWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   transition: all 100ms;
-  ${props => (props.firstRender ? "min-width: 260px;" : "")}
+  min-width: 260px;
   transform: scaleY(${props => (props.collapsed ? "0" : "1")});
 `;
 

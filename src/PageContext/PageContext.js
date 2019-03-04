@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 
-export const MenuContext = React.createContext();
+export const PageContext = React.createContext();
 
-export class MenuContextProvider extends Component {
+export class PageContextProvider extends Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: true,
       mobile: true,
-      firstRender: true,
+      firstMenuRender: true,
       menuChildState: {},
-      setFirstRender: this.setFirstRender.bind(this),
+      setFirstMenuRender: this.setFirstMenuRender.bind(this),
       setMenuChildExpandedState: this.setMenuChildExpandedState.bind(this),
       setMenuChildExpandedHeight: this.setMenuChildExpandedHeight.bind(this),
       setIsMobile: this.setIsMobile.bind(this),
@@ -33,7 +33,7 @@ export class MenuContextProvider extends Component {
     });
   };
 
-  setFirstRender() {
+  setFirstMenuRender() {
     this.setState(prevState => {
       prevState.firstRender = false;
       return prevState;
@@ -78,9 +78,9 @@ export class MenuContextProvider extends Component {
 
   render() {
     return (
-      <MenuContext.Provider value={this.state}>
+      <PageContext.Provider value={this.state}>
         {this.props.children}
-      </MenuContext.Provider>
+      </PageContext.Provider>
     );
   }
 }

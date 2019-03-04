@@ -10,6 +10,4 @@ const MenuItemWrapper = styled.div`
   ${props => (props.deviders ? "border-bottom: 2px solid #555555;" : "")}
 `;
 
-// min-width: 230px;
-
 export default MenuItemWrapper;
