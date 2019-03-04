@@ -15,8 +15,8 @@ export default function Template({ data }) {
 
   return (
     <BaseStructure title={title}>
-      {postExcerpts.map(excerpt => (
-        <div style={{ paddingBottom: "24px" }}>
+      {postExcerpts.map((excerpt, i) => (
+        <div style={{ paddingBottom: "24px" }} key={`post-excerpt-${i}`}>
           <h2>{excerpt.title}</h2>
           <div dangerouslySetInnerHTML={{ __html: excerpt.html }} />
           <Link to={excerpt.path}>Continue Reading...</Link>

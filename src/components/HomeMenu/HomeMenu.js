@@ -7,8 +7,10 @@ const HomeMenu = props => {
   return (
     <HomeMenuWrapper menuImage={props.menuImage}>
       <RadialRender r={250}>
-        {React.Children.toArray(props.children).map(child => {
-          return <HomeMenuItem>{child}</HomeMenuItem>;
+        {React.Children.toArray(props.children).map((child, i) => {
+          return (
+            <HomeMenuItem key={`home-menu-item-${i}`}>{child}</HomeMenuItem>
+          );
         })}
       </RadialRender>
     </HomeMenuWrapper>

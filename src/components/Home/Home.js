@@ -6,8 +6,10 @@ class Home extends Component {
   render() {
     return (
       <HomeMenu menuImage={this.props.menuImage} style={{ margin: "auto" }}>
-        {this.props.homeMenuItems.map(item => (
-          <MenuChildLink to={item.link}>{item.label}</MenuChildLink>
+        {this.props.homeMenuItems.map((item, i) => (
+          <MenuChildLink to={item.link} key={`main-menu-child-${i}`}>
+            {item.label}
+          </MenuChildLink>
         ))}
       </HomeMenu>
     );

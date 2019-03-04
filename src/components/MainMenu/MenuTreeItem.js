@@ -4,47 +4,43 @@ import MainMenuLink from "./MainMenuLink";
 import MenuListWrapper from "./MenuListWrapper";
 import RotateChild from "./RotateChild";
 import Poly from "react-svg-polygon";
-import uuid from "uuid/v4";
+import { MenuContext } from "./MenuContext";
 
 class MenuTreeItem extends Component {
   constructor(props) {
     super(props);
     this.childRefs = this.props.childItems.map(c => React.createRef());
-
     this.state = {
-      collapsed: false,
-      padding: 12,
-      expandTo: 0
+      padding: 12
     };
   }
 
   componentDidMount() {
-    if (this.childRefs.length > 0) {
-      const firstChildRect = this.childRefs[0].current.getBoundingClientRect();
-      const lastChildRect = this.childRefs[
-        this.childRefs.length - 1
-      ].current.getBoundingClientRect();
-
-      const bottom = Math.ceil(
-        lastChildRect.y - firstChildRect.y + lastChildRect.height
-      );
-
-      this.setState({
-        expandTo: bottom,
-        collapsed: true
+    if (this.context.firstRender) {
+      let height = 0;
+      let rect;
+      this.childRefs.forEach(c => {
+        rect = c.current.getBoundingClientRect();
+        console.log("rect:");
+        console.log(rect);
+        height += rect.height + 8;
       });
-    } else {
-      this.setState({ collapsed: true });
+
+      this.context.setMenuChildExpandedHeight(this.props.localStoreKey, height);
+      this.context.setMenuChildExpandedState(this.props.localStoreKey);
+      this.context.setFirstRender();
     }
   }
 
+  static contextType = MenuContext;
+
   toggleCollapse() {
-    this.setState(prevState => {
-      return { collapsed: !prevState.collapsed };
-    });
+    this.context.setMenuChildExpandedState(this.props.localStoreKey);
   }
 
   render() {
+    const childState = this.context.getMenuChildState(this.props.localStoreKey);
+    //console.log(childState);
     return (
       <>
         <MenuItemWrapper
@@ -53,7 +49,7 @@ class MenuTreeItem extends Component {
           deviders={false}
         >
           <RotateChild
-            angle={this.state.collapsed ? "-90deg" : "0deg"}
+            angle={!childState.expanded ? "-90deg" : "0deg"}
             style={{ marginRight: "4px" }}
           >
             <Poly
@@ -67,13 +63,14 @@ class MenuTreeItem extends Component {
         </MenuItemWrapper>
         <MenuListWrapper
           padding={this.state.padding}
-          collapsed={this.state.collapsed}
-          expandTo={this.state.expandTo}
+          collapsed={!childState.expanded}
+          expandTo={childState.height}
+          firstRender={this.context.firstRender}
         >
           {this.props.childItems.map((child, i) => {
             return (
               <MenuItemWrapper
-                key={uuid()}
+                key={`${this.props.item.title}-child-${i}`}
                 ref={this.childRefs[i]}
                 deviders={true}
               >

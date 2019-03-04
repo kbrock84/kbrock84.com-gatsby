@@ -45,8 +45,7 @@ class Body extends Component {
             <MainMenu
               width={268}
               menuItems={this.props.categories}
-              visible={false}
-              mobile={this.state.mobileLayout}
+              mobileThreshold={766}
             />
             <ContentContainer title={this.props.title}>
               {this.props.children}

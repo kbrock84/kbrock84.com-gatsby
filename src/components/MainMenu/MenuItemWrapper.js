@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const MenuItemWrapper = styled.div`
-  font-size: 1.2em;
+  font-size: 18px;
   font-weight: 400;
   color: ${props => props.color};
   margin: 0.2em;
@@ -9,5 +9,7 @@ const MenuItemWrapper = styled.div`
   cursor: pointer;
   ${props => (props.deviders ? "border-bottom: 2px solid #555555;" : "")}
 `;
+
+// min-width: 230px;
 
 export default MenuItemWrapper;
