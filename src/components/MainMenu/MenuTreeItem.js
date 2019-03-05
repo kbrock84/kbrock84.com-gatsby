@@ -11,39 +11,61 @@ class MenuTreeItem extends Component {
     super(props);
     this.childRefs = this.props.childItems.map(c => React.createRef());
     this.state = {
-      padding: 12
+      padding: 12,
+      renderTrigger: 0
     };
   }
 
   componentDidMount() {
-    if (this.context.firstMenuRender) {
+    this.setLayout();
+  }
+
+  setLayout() {
+    if (this.context.firstMenuRender || this.context.resetMenuLayout) {
       let height = 0;
       let rect;
       this.childRefs.forEach(c => {
         rect = c.current.getBoundingClientRect();
-        console.log("rect:");
-        console.log(rect);
-        height += rect.height + 8;
+        height += rect.height;
       });
 
+      if (height === 0) {
+        height = this.childRefs.length * 16;
+      }
+      height += this.childRefs.length * 8;
+
       this.context.setMenuChildExpandedHeight(this.props.localStoreKey, height);
-      this.context.setMenuChildExpandedState(this.props.localStoreKey);
-      this.context.setFirstMenuRender();
+      this.context.setMenuChildExpandedState(this.props.localStoreKey, false);
+
+      this.context.setResetMenuLayout(false);
+      this.context.setFirstMenuRender(false);
     }
   }
 
   static contextType = PageContext;
 
-  toggleCollapse() {
-    this.context.setMenuChildExpandedState(this.props.localStoreKey);
+  toggleExpandedState() {
+    this.context.setMenuChildExpandedState(
+      this.props.localStoreKey,
+      !this.context.getMenuChildState(this.props.localStoreKey).expanded
+    );
   }
 
   render() {
     const childState = this.context.getMenuChildState(this.props.localStoreKey);
+    if (this.context.resetMenuLayout) {
+      if (this.context.resetMenuLayout && !childState.expanded) {
+        this.toggleExpandedState(true);
+      } else {
+        this.setLayout();
+      }
+    }
     return (
       <>
         <MenuItemWrapper
-          onClick={this.toggleCollapse.bind(this)}
+          //onclick not working
+
+          onClick={this.toggleExpandedState.bind(this)}
           color={`rgba(255, 100, 255)`}
           deviders={false}
         >
@@ -62,9 +84,8 @@ class MenuTreeItem extends Component {
         </MenuItemWrapper>
         <MenuListWrapper
           padding={this.state.padding}
-          collapsed={!childState.expanded}
+          expanded={childState.expanded || this.context.resetMenuLayout}
           expandTo={childState.height}
-          firstMenuRender={this.context.firstMenuRender}
         >
           {this.props.childItems.map((child, i) => {
             return (

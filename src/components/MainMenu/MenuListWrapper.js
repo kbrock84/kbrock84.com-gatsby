@@ -3,7 +3,7 @@ import styled from "styled-components";
 const MenuListWrapper = styled.div`
   padding-left: ${props => props.padding + "px"};
   overflow: hidden;
-  height: ${props => (props.collapsed ? "0px" : props.expandTo + "px")};
+  height: ${props => (props.expanded ? props.expandTo + "px" : "0px")};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

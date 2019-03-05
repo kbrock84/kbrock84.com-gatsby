@@ -9,10 +9,12 @@ export class PageContextProvider extends Component {
       visible: true,
       mobile: true,
       firstMenuRender: true,
+      resetMenuLayout: false,
       menuChildState: {},
       setFirstMenuRender: this.setFirstMenuRender.bind(this),
       setMenuChildExpandedState: this.setMenuChildExpandedState.bind(this),
       setMenuChildExpandedHeight: this.setMenuChildExpandedHeight.bind(this),
+      setResetMenuLayout: this.setResetMenuLayout.bind(this),
       setIsMobile: this.setIsMobile.bind(this),
       getMenuChildState: this.getMenuChildState.bind(this),
       toggleVisibility: this.toggleVisibility.bind(this)
@@ -26,6 +28,13 @@ export class PageContextProvider extends Component {
     });
   };
 
+  setResetMenuLayout = value => {
+    this.setState(prevState => {
+      prevState.resetMenuLayout = value;
+      return prevState;
+    });
+  };
+
   setIsMobile = value => {
     this.setState(prevState => {
       prevState.mobile = value;
@@ -33,17 +42,17 @@ export class PageContextProvider extends Component {
     });
   };
 
-  setFirstMenuRender() {
+  setFirstMenuRender(value) {
     this.setState(prevState => {
-      prevState.firstRender = false;
+      prevState.firstRender = value;
       return prevState;
     });
   }
 
-  setMenuChildExpandedState = key => {
+  setMenuChildExpandedState = (key, expanded) => {
     this.setState(prevState => {
       let menuChild = prevState.menuChildState[key];
-      menuChild.expanded = !menuChild.expanded;
+      menuChild.expanded = expanded;
       prevState.menuChildState[key] = menuChild;
       return prevState;
     });
