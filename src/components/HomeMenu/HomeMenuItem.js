@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 const HomeMenuItem = styled.button`
   border: none;
-  border-radius: 70px;
-  width: 140px;
-  height: 140px;
+  border-radius: ${props => props.r}px;
+  width: ${props => props.r * 2}px;
+  height: ${props => props.r * 2}px;
+  font-size: ${props => (props.mobile ? "0.7em" : "1em")};
   color: #fefefe;
   display: flex;
   flex-direction: column;

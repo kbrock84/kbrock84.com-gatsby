@@ -11,7 +11,6 @@ export default function Template({ data }) {
   }));
 
   const title = data.allPostCategoriesJson.edges[0].node.label;
-  console.log(title);
 
   return (
     <BaseStructure title={title}>

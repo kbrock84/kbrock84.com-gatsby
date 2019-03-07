@@ -38,6 +38,7 @@ export class PageContextProvider extends Component {
   setIsMobile = value => {
     this.setState(prevState => {
       prevState.mobile = value;
+      console.log("setting mobile to: " + prevState.mobile);
       return prevState;
     });
   };
@@ -84,6 +85,32 @@ export class PageContextProvider extends Component {
     }
     return childState;
   };
+
+  setLayout() {
+    setTimeout(() => {
+      if (window.innerWidth < 766 && !this.state.mobile) {
+        if (this.state.mobile !== true) {
+          this.setIsMobile(true);
+        }
+      } else if (window.innerWidth >= 766 && this.state.mobile) {
+        if (this.state.mobile !== false) {
+          this.setIsMobile(false);
+        }
+      }
+      this.state.setResetMenuLayout(true);
+      this.throttled = false;
+    }, 200);
+    this.throttled = true;
+  }
+
+  componentDidMount() {
+    this.state.setIsMobile(window.innerWidth < 766);
+    window.addEventListener("resize", this.setLayout.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.setLayout);
+  }
 
   render() {
     return (

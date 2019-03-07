@@ -13,32 +13,6 @@ class Body extends Component {
 
   static contextType = PageContext;
 
-  setLayout() {
-    setTimeout(() => {
-      if (window.innerWidth < 766 && !this.context.mobile) {
-        if (this.context.mobile !== true) {
-          this.context.setIsMobile(true);
-        }
-      } else if (window.innerWidth >= 766 && this.context.mobile) {
-        if (this.context.mobile !== false) {
-          this.context.setIsMobile(false);
-        }
-      }
-      this.context.setResetMenuLayout(true);
-      this.throttled = false;
-    }, 200);
-    this.throttled = true;
-  }
-
-  componentDidMount() {
-    this.context.setIsMobile(window.innerWidth < 766);
-    window.addEventListener("resize", this.setLayout.bind(this));
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.setLayout);
-  }
-
   render() {
     return (
       <>

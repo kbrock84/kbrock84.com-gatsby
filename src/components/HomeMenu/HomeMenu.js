@@ -2,18 +2,35 @@ import React from "react";
 import RadialRender from "react-radial-render";
 import HomeMenuWrapper from "./HomeMenuWrapper";
 import HomeMenuItem from "./HomeMenuItem";
+import { PageContext } from "../../PageContext/PageContext";
 
 const HomeMenu = props => {
   return (
-    <HomeMenuWrapper menuImage={props.menuImage}>
-      <RadialRender r={250}>
-        {React.Children.toArray(props.children).map((child, i) => {
-          return (
-            <HomeMenuItem key={`home-menu-item-${i}`}>{child}</HomeMenuItem>
-          );
-        })}
-      </RadialRender>
-    </HomeMenuWrapper>
+    <PageContext.Consumer>
+      {context => {
+        console.log(context);
+        return (
+          <HomeMenuWrapper
+            mobile={context.mobile}
+            menuImageSet={props.menuImageSet}
+          >
+            <RadialRender r={context.mobile ? 130 : 230}>
+              {React.Children.toArray(props.children).map((child, i) => {
+                return (
+                  <HomeMenuItem
+                    r={context.mobile ? 34 : 60}
+                    key={`home-menu-item-${i}`}
+                    mobile={context.mobile}
+                  >
+                    {child}
+                  </HomeMenuItem>
+                );
+              })}
+            </RadialRender>
+          </HomeMenuWrapper>
+        );
+      }}
+    </PageContext.Consumer>
   );
 };
 

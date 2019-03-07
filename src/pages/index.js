@@ -10,15 +10,19 @@ const IndexPage = props => (
     query={graphql`
       {
         allImageSharp(
-          filter: {
-            fixed: { originalName: { eq: "sticky-bot_cropped_edited2.jpg" } }
-          }
+          filter: { fixed: { originalName: { eq: "sticky-bot_dark_600.jpg" } } }
         ) {
           edges {
             node {
               ... on ImageSharp {
-                resize(width: 500, height: 500) {
-                  src
+                fluid(
+                  duotone: {
+                    highlight: "#333333"
+                    shadow: "#080808"
+                    opacity: 100
+                  }
+                ) {
+                  srcSet
                 }
               }
             }
@@ -40,12 +44,12 @@ const IndexPage = props => (
         label: e.node.label,
         link: e.node.link
       }));
+      const srcSet = data.allImageSharp.edges[0].node.fluid.srcSet
+        .split(",\n")
+        .map(s => s.replace(/\s\d{3}w/, ""));
       return (
         <IndexPageContainer>
-          <Home
-            menuImage={data.allImageSharp.edges[0].node.resize.src}
-            homeMenuItems={menuItems}
-          />
+          <Home menuImageSet={srcSet} homeMenuItems={menuItems} />
         </IndexPageContainer>
       );
     }}
