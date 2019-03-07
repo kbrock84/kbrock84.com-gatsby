@@ -3,7 +3,7 @@ import styled from "styled-components";
 const BodyWrapper = styled.div`
   background-color: #eeeeee;
   display: grid;
-  max-width: 100%;
+  width: 100vw;
   @media (min-width: 769px), (orientation: landscape) {
     ${props =>
       props.isHome

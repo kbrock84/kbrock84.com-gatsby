@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const MainMenuWrapper = styled.div`
-  width: ${props => (props.mobile ? "fill" : props.width + "px")};
+  width: ${props => (props.mobile ? "100vw" : props.width + "px")};
   background-color: #0f0f0f;
   height: ${props => (props.mobile ? "70px" : "100vh")};
   padding: 16px;
