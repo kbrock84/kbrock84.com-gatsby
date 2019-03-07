@@ -20,25 +20,40 @@ class MenuTreeItem extends Component {
     this.setLayout();
   }
 
+  triggerRerender() {
+    this.setState(prevState => {
+      prevState.renderTrigger++;
+      return prevState;
+    });
+  }
+
   setLayout() {
     if (this.context.firstMenuRender || this.context.resetMenuLayout) {
-      let height = 0;
-      let rect;
-      this.childRefs.forEach(c => {
-        rect = c.current.getBoundingClientRect();
-        height += rect.height;
-      });
+      if (this.childRefs[0] !== undefined) {
+        let height = 0;
+        let rect;
 
-      if (height === 0) {
-        height = this.childRefs.length * 16;
+        this.childRefs.forEach(c => {
+          rect = c.current.getBoundingClientRect();
+          height += rect.height;
+        });
+
+        if (height === 0) {
+          height = this.childRefs.length * 16;
+        }
+        height += this.childRefs.length * 8;
+
+        this.context.setMenuChildExpandedHeight(
+          this.props.localStoreKey,
+          height
+        );
+        this.context.setMenuChildExpandedState(this.props.localStoreKey, false);
+
+        this.context.setResetMenuLayout(false);
+        this.context.setFirstMenuRender(false);
       }
-      height += this.childRefs.length * 8;
-
-      this.context.setMenuChildExpandedHeight(this.props.localStoreKey, height);
-      this.context.setMenuChildExpandedState(this.props.localStoreKey, false);
-
-      this.context.setResetMenuLayout(false);
-      this.context.setFirstMenuRender(false);
+    } else {
+      this.triggerRerender();
     }
   }
 
@@ -63,8 +78,6 @@ class MenuTreeItem extends Component {
     return (
       <>
         <MenuItemWrapper
-          //onclick not working
-
           onClick={this.toggleExpandedState.bind(this)}
           color={`rgba(255, 100, 255)`}
           deviders={false}
