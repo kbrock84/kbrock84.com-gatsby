@@ -1,30 +1,26 @@
 [
   {
-    "label": "VBA",
-    "link": "/vba"
-  },
-  {
-    "label": "JavaScript",
+    "label": "Blog",
     "link": "/javascript"
-  },
-  {
-    "label": "Nodejs",
-    "link": "/nodejs"
-  },
-  {
-    "label": "Office365 Dev",
-    "link": "/office365dev"
-  },
-  {
-    "label": "GraphQL",
-    "link": "/graphql"
-  },
-  {
-    "label": "Gatsby & GraphQL",
-    "link": "/gatsby"
   },
   {
     "label": "About Me",
     "link": "/about"
+  },
+  {
+    "label": "About this Site",
+    "link": "/nodejs"
+  },
+  {
+    "label": "Contact",
+    "link": "/contact"
+  },
+  {
+    "label": "GitHub",
+    "link": "/github"
+  },
+  {
+    "label": "Twitter",
+    "link": "/twitter"
   }
 ]

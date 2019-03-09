@@ -3,53 +3,55 @@ import HomeMenu from "../HomeMenu/HomeMenu";
 import MenuChildLink from "./MenuChildLink";
 import HomeHeading from "./HomeHeading";
 import { PageContext } from "../../PageContext/PageContext";
-import HomeWrapper from "./HomeWrapper";
+import KevinTitle from "../KevinTitle/KevinTitle";
+import CircularText from "../CircularText/CircularText";
+import styled from "styled-components";
+
+const LayersWrapper = styled.div`
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+`;
+
+const Layer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
 
 class Home extends Component {
   static contextType = PageContext;
   render() {
     return (
-      <>
-        <HomeHeading color={"#00ffff"}>
-          <div
-            style={{
-              margin: "0",
-              padding: "0",
-              fontSize: this.context.mobile ? "1.8em" : "2.5em"
-            }}
-          >
-            <div>
-              <p>Kevin Brock</p>
-            </div>
-            <div>
-              <div
-                style={{
-                  fontSize: "0.3em",
-                  margin: "0",
-                  padding: "0",
-                  display: "inline-block"
-                }}
-              >
-                <div
-                  style={{ transform: " translateY(-0.5em) rotate(-45deg)" }}
-                >
-                  <p style={{ fontSize: "1.5em" }}>WEB</p>
-                </div>
-              </div>
-              Developer
-            </div>
-          </div>
-        </HomeHeading>
-
-        <HomeMenu menuImageSet={this.props.menuImageSet}>
-          {this.props.homeMenuItems.map((item, i) => (
-            <MenuChildLink to={item.link} key={`main-menu-child-${i}`}>
-              {item.label}
-            </MenuChildLink>
-          ))}
-        </HomeMenu>
-        {/* //change from margin auto to flexbox */}
-      </>
+      <LayersWrapper>
+        <Layer>
+          <HomeMenu menuImageSet={this.props.menuImageSet}>
+            {this.props.homeMenuItems.map((item, i) => (
+              <MenuChildLink to={item.link} key={`main-menu-child-${i}`}>
+                {item.label}
+              </MenuChildLink>
+            ))}
+          </HomeMenu>
+        </Layer>
+        <Layer style={{ pointerEvents: "none" }}>
+          <HomeHeading color={"#00ffff"}>
+            <KevinTitle fontSize={this.context.mobile ? "1.8em" : "2.5em"} />
+          </HomeHeading>
+        </Layer>
+        <Layer style={{ pointerEvents: "none" }}>
+          <CircularText
+            text={
+              "let coffee = { roast: extra bold, cream: true, sugar: false }; const dev = coffee => writeCode(coffee); const writeCode = coffee => dev(coffee);"
+            }
+            r={this.context.mobile ? 185 : 170}
+          />
+        </Layer>
+      </LayersWrapper>
     );
   }
 }

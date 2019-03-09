@@ -6,7 +6,7 @@ const MenuChildLink = styled(Link)`
   padding-bottom: 1px;
   color: #fefefe;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 0.8em;
   font-weight: bold;
 `;
 

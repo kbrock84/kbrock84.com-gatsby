@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const HomeMenuWrapper = styled.div`
-  align-items: center;
+  /* align-items: center; */
   background-repeat: no-repeat;
   background-position: center center;
 

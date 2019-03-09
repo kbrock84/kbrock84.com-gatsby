@@ -8,26 +8,27 @@ const HomeMenu = props => {
   return (
     <PageContext.Consumer>
       {context => {
-        console.log(context);
         return (
-          <HomeMenuWrapper
-            mobile={context.mobile}
-            menuImageSet={props.menuImageSet}
-          >
-            <RadialRender r={context.mobile ? 130 : 230}>
-              {React.Children.toArray(props.children).map((child, i) => {
-                return (
-                  <HomeMenuItem
-                    r={context.mobile ? 34 : 60}
-                    key={`home-menu-item-${i}`}
-                    mobile={context.mobile}
-                  >
-                    {child}
-                  </HomeMenuItem>
-                );
-              })}
-            </RadialRender>
-          </HomeMenuWrapper>
+          <>
+            <HomeMenuWrapper
+              mobile={context.mobile}
+              menuImageSet={props.menuImageSet}
+            >
+              <RadialRender r={context.mobile ? 130 : 230}>
+                {React.Children.toArray(props.children).map((child, i) => {
+                  return (
+                    <HomeMenuItem
+                      r={context.mobile ? 30 : 34}
+                      key={`home-menu-item-${i}`}
+                      mobile={context.mobile}
+                    >
+                      {child}
+                    </HomeMenuItem>
+                  );
+                })}
+              </RadialRender>
+            </HomeMenuWrapper>
+          </>
         );
       }}
     </PageContext.Consumer>
