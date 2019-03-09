@@ -40,7 +40,6 @@ class MenuTreeItem extends Component {
             height += rect.height;
           } else {
             this.triggerRerender();
-            console.error("caught null val on setLayout()");
             break;
           }
         }
