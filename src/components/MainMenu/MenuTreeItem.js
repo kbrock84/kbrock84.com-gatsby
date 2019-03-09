@@ -33,10 +33,17 @@ class MenuTreeItem extends Component {
         let height = 0;
         let rect;
 
-        this.childRefs.forEach(c => {
-          rect = c.current.getBoundingClientRect();
-          height += rect.height;
-        });
+        for (let i = 0; i < this.childRefs.length; i++) {
+          const c = this.childRefs[i];
+          if (c.current !== null) {
+            rect = c.current.getBoundingClientRect();
+            height += rect.height;
+          } else {
+            this.triggerRerender();
+            console.error("caught null val on setLayout()");
+            break;
+          }
+        }
 
         if (height === 0) {
           height = this.childRefs.length * 16;
