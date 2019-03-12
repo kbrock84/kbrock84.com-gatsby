@@ -12,7 +12,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
   const postTemplate = path.resolve("src/templates/post.js");
-  const postCategoryTemplate = path.resolve("src/templates/post-category.js");
 
   return graphql(`
     {
@@ -29,31 +28,15 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           }
         }
       }
-
-      allPostCategoriesJson {
-        edges {
-          node {
-            label
-            link
-          }
-        }
-      }
     }
   `).then(res => {
     if (res.errors) {
       return Promise.reject(res.errors);
     }
-    console.log(res.data);
     res.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.path,
         component: postTemplate
-      });
-    });
-    res.data.allPostCategoriesJson.edges.forEach(({ node }) => {
-      createPage({
-        path: node.link,
-        component: postCategoryTemplate
       });
     });
   });
