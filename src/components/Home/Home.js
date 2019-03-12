@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import HomeMenu from "../HomeMenu/HomeMenu";
 import MenuChildLink from "./MenuChildLink";
 import HomeHeading from "./HomeHeading";
@@ -24,36 +24,35 @@ const Layer = styled.div`
   left: 0;
 `;
 
-class Home extends Component {
-  static contextType = PageContext;
-  render() {
-    return (
-      <LayersWrapper>
-        <Layer>
-          <HomeMenu menuImageSet={this.props.menuImageSet}>
-            {this.props.homeMenuItems.map((item, i) => (
-              <MenuChildLink to={item.link} key={`main-menu-child-${i}`}>
-                {item.label}
-              </MenuChildLink>
-            ))}
-          </HomeMenu>
-        </Layer>
-        <Layer style={{ pointerEvents: "none" }}>
-          <HomeHeading color={"#00ffff"}>
-            <KevinTitle fontSize={this.context.mobile ? "1.8em" : "2.5em"} />
-          </HomeHeading>
-        </Layer>
-        <Layer style={{ pointerEvents: "none" }}>
-          <CircularText
-            text={
-              "let coffee = { roast: extra bold, cream: true, sugar: false }; const dev = coffee => writeCode(coffee); const writeCode = coffee => dev(coffee);"
-            }
-            r={this.context.mobile ? 185 : 170}
-          />
-        </Layer>
-      </LayersWrapper>
-    );
-  }
-}
+const Home = props => {
+  const context = useContext(PageContext);
+
+  return (
+    <LayersWrapper>
+      <Layer>
+        <HomeMenu menuImageSet={props.menuImageSet}>
+          {props.homeMenuItems.map((item, i) => (
+            <MenuChildLink to={item.link} key={`main-menu-child-${i}`}>
+              {item.label}
+            </MenuChildLink>
+          ))}
+        </HomeMenu>
+      </Layer>
+      <Layer style={{ pointerEvents: "none" }}>
+        <HomeHeading color={"#00ffff"}>
+          <KevinTitle fontSize={context.mobile ? "1.8em" : "2.5em"} />
+        </HomeHeading>
+      </Layer>
+      <Layer style={{ pointerEvents: "none" }}>
+        <CircularText
+          text={
+            "let coffee = { roast: extra bold, cream: true, sugar: false }; const dev = coffee => writeCode(coffee); const writeCode = coffee => dev(coffee);"
+          }
+          r={context.mobile ? 185 : 170}
+        />
+      </Layer>
+    </LayersWrapper>
+  );
+};
 
 export default Home;
