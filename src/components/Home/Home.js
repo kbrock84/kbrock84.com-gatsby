@@ -6,6 +6,9 @@ import { PageContext } from "../../PageContext/PageContext";
 import KevinTitle from "../KevinTitle/KevinTitle";
 import CircularText from "../CircularText/CircularText";
 import styled from "styled-components";
+import GithubImage from "../GithubImage";
+import TwitterImage from "../TwitterImage";
+import HomeMenuItem from "../HomeMenu/HomeMenuItem";
 
 const LayersWrapper = styled.div`
   position: relative;
@@ -26,16 +29,31 @@ const Layer = styled.div`
 
 const Home = props => {
   const context = useContext(PageContext);
-
   return (
     <LayersWrapper>
       <Layer>
         <HomeMenu menuImageSet={props.menuImageSet}>
-          {props.homeMenuItems.map((item, i) => (
-            <MenuChildLink to={item.link} key={`main-menu-child-${i}`}>
-              {item.label}
-            </MenuChildLink>
-          ))}
+          {props.homeMenuItems.map((item, i) =>
+            item.type == "internal" ? (
+              <MenuChildLink to={item.link} key={`main-menu-child-${i}`}>
+                <HomeMenuItem
+                  r={context.mobile ? 28 : 34}
+                  mobile={context.mobile}
+                >
+                  {item.label}
+                </HomeMenuItem>
+              </MenuChildLink>
+            ) : null
+          )}
+          <HomeMenuItem r={context.mobile ? 30 : 34} mobile={context.mobile}>
+            <a href={"https://twitter.com/kbrock84"} />
+            <TwitterImage />
+          </HomeMenuItem>
+          <HomeMenuItem r={context.mobile ? 30 : 34} mobile={context.mobile}>
+            <a href={"https://github.com/kbrock84"}>
+              <GithubImage />
+            </a>
+          </HomeMenuItem>
         </HomeMenu>
       </Layer>
       <Layer style={{ pointerEvents: "none" }}>

@@ -8,7 +8,6 @@ const TitleText = styled.h6`
   margin-bottom: -0.1em;
 `;
 
-// fontSize: props.fontSize || "1em",
 const KevinTitle = props => {
   return (
     <div

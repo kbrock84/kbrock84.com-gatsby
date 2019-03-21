@@ -29,14 +29,14 @@ pre[class*="language-"] {
 
 pre[class*="language-"],
 :not(pre) > code[class*="language-"] {
-  background: #0f0f0f;
+  background: rgb(30, 30, 30);
 }
 
 /* Code blocks */
 pre[class*="language-"] {
-  border-radius: 0.5em;
+  font-size: 0.75rem;
+  border-radius: 0.2em;
   border: none;
-  box-shadow: 1px 1px 0.5em black inset;
   margin: 0.5em 0;
   overflow: auto;
   padding: 1em;
@@ -71,11 +71,14 @@ code[class*="language-"] ::selection {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  border-radius: 0.3em;
-  border: 0.13em solid hsl(0, 0%, 33%); /* #545454 */
-  box-shadow: 1px 1px 0.3em -0.1em black inset;
+  border-radius: 0.2em;
+  border: none;
+  font-size: 0.9em;
   padding: 0.15em 0.2em 0.05em;
+  margin: 0 4px 0 4px;
   white-space: normal;
+  background-color: #aaaaaa;
+  color: #26199b;
 }
 
 .token.comment,
@@ -94,7 +97,6 @@ code[class*="language-"] ::selection {
 }
 
 .token.string {
-  /* color: #89ca5c; */
   color: #5cca9c;
 }
 
@@ -103,7 +105,7 @@ code[class*="language-"] ::selection {
 .token.constant,
 .token.symbol,
 .token.builtin {
-  color: #3facff; /* #F9EE98 */
+  color: #3facff;
 }
 
 .token.property,
@@ -134,7 +136,7 @@ code[class*="language-"] ::selection {
 }
 
 .token.atrule {
-  color: hsl(210, 1%, 39%); /* #7587A6 */
+  color: hsl(210, 1%, 39%);
 }
 
 .token.regex,
