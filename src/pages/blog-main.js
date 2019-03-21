@@ -11,7 +11,7 @@ export default function Template({ data }) {
           allMarkdownRemark {
             edges {
               node {
-                excerpt(pruneLength: 100, format: HTML)
+                excerpt(pruneLength: 250, format: HTML)
                 frontmatter {
                   title
                   path
@@ -29,7 +29,7 @@ export default function Template({ data }) {
           title: e.node.frontmatter.title
         }));
         return (
-          <BaseStructure title={"Kevin Brock's Blog"}>
+          <BaseStructure title={"kevDevBlog"}>
             {postExcerpts.map((excerpt, i) => (
               <div style={{ paddingBottom: "24px" }} key={`post-excerpt-${i}`}>
                 <h2>{excerpt.title}</h2>
