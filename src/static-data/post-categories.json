@@ -1,26 +1,6 @@
 [
   {
-    "label": "Blog",
-    "link": "/javascript"
-  },
-  {
-    "label": "About Me",
-    "link": "/about"
-  },
-  {
-    "label": "About this Site",
-    "link": "/nodejs"
-  },
-  {
-    "label": "Contact",
-    "link": "/contact"
-  },
-  {
-    "label": "GitHub",
-    "link": "/github"
-  },
-  {
-    "label": "Twitter",
-    "link": "/twitter"
+    "type": "internal",
+    "label": "Regular Expressions"
   }
 ]

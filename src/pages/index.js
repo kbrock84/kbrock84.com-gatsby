@@ -29,9 +29,10 @@ const IndexPage = props => (
           }
         }
 
-        allPostCategoriesJson {
+        allMenuItemsJson {
           edges {
             node {
+              type
               label
               link
             }
@@ -40,7 +41,8 @@ const IndexPage = props => (
       }
     `}
     render={data => {
-      const menuItems = data.allPostCategoriesJson.edges.map(e => ({
+      const menuItems = data.allMenuItemsJson.edges.map(e => ({
+        type: e.node.type,
         label: e.node.label,
         link: e.node.link
       }));

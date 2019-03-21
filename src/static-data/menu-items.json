@@ -1,0 +1,22 @@
+[
+  {
+    "type": "internal",
+    "label": "Blog",
+    "link": "/blog-main"
+  },
+  {
+    "type": "internal",
+    "label": "About Me",
+    "link": "/about"
+  },
+  {
+    "type": "internal",
+    "label": "About this Site",
+    "link": "/about-this-site"
+  },
+  {
+    "type": "internal",
+    "label": "Contact",
+    "link": "/contact"
+  }
+]
