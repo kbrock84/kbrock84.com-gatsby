@@ -2,31 +2,22 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import posed from "react-pose";
 import Typist from "react-typist";
-
-const EnterLeft = posed.div({
-  enter: {
-    x: 0,
-    opacity: 0.9,
-    transition: { ease: "easeOut", duration: 700 }
-  },
-  exit: {
-    x: -300,
-    opacity: 0,
-    transition: { ease: "linear" }
-  }
-});
+import GithubImage from "../components/GithubImage";
+import TwitterImage from "../components/TwitterImage";
+import PopIn from "../Animations/PopIn";
+import ExpandOnHover from "../Animations/ExpandOnHover";
 
 const EnterTop = posed.div({
   enter: {
-    y: 0,
+    x: 0,
     opacity: 0.9,
     transition: {
-      default: { ease: "easeOut", duration: 700 },
-      opacity: { duration: 1200 }
+      default: { ease: "easeIn", duration: 350 },
+      opacity: { duration: 450 }
     }
   },
   exit: {
-    y: -300,
+    x: -300,
     opacity: 0,
     transition: { ease: "linear" }
   }
@@ -45,9 +36,9 @@ const AboutWrapper = styled.div`
 const IntroText = () => {
   return (
     <div style={{ width: "100%", paddingRight: "32px", maxWidth: "650px" }}>
-      <Typist avgTypingDelay={30}>
+      <Typist avgTypingDelay={10}>
         <code style={{ color: "#00CCCC" }}>
-          Hi... <Typist.Delay ms={300} />
+          Hi!, <Typist.Delay ms={300} />
           I'm Kevin.
           <Typist.Delay ms={400} />
           <br />
@@ -68,9 +59,8 @@ const IntroText = () => {
           <br />
           <br />
           <Typist.Delay ms={400} />
-          Please join me on this journey by submitting any issues to this
-          website or other repos I have on GitHub, or sending me a tweet or DM
-          both @kbrock84.
+          Please join me by submitting any issues to this website or other repos
+          I have on GitHub, or sending me a tweet or DM @kbrock84 (links above).
         </code>
       </Typist>
     </div>
@@ -82,13 +72,43 @@ const About = () => {
   useEffect(() => {
     setTimeout(() => {
       setTitleVisibility(true);
-    }, 1000);
+    }, 200);
   });
   return (
     <AboutWrapper>
-      <EnterTop pose={isTitleVisible ? "enter" : "exit"}>
-        <h1>Kevin Brock</h1>
+      <EnterTop
+        pose={isTitleVisible ? "enter" : "exit"}
+        style={{
+          display: "inline-block",
+          width: "250px"
+        }}
+      >
+        <h1 style={{ display: "block", width: "250px" }}>Kevin Brock</h1>
       </EnterTop>
+      <span style={{ marginRight: "32px" }}>
+        <PopIn
+          style={{ display: "inline-block" }}
+          pose={isTitleVisible ? "visible" : "hidden"}
+          delay={300}
+        >
+          <ExpandOnHover>
+            <a href={"https://github.com/kbrock84"}>
+              <GithubImage />
+            </a>
+          </ExpandOnHover>
+        </PopIn>
+      </span>
+      <PopIn
+        style={{ display: "inline-block" }}
+        pose={isTitleVisible ? "visible" : "hidden"}
+        delay={400}
+      >
+        <ExpandOnHover>
+          <a href={"https://twitter.com/kbrock84"}>
+            <TwitterImage />
+          </a>
+        </ExpandOnHover>
+      </PopIn>
       <IntroText />
     </AboutWrapper>
   );

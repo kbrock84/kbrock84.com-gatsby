@@ -46,11 +46,18 @@ const Home = props => {
             ) : null
           )}
           <HomeMenuItem r={context.mobile ? 30 : 34} mobile={context.mobile}>
-            <a href={"https://twitter.com/kbrock84"} />
-            <TwitterImage />
+            <a
+              href={"https://twitter.com/kbrock84"}
+              style={{ lineHeight: "0px" }}
+            >
+              <TwitterImage />
+            </a>
           </HomeMenuItem>
           <HomeMenuItem r={context.mobile ? 30 : 34} mobile={context.mobile}>
-            <a href={"https://github.com/kbrock84"}>
+            <a
+              href={"https://github.com/kbrock84"}
+              style={{ lineHeight: "0px" }}
+            >
               <GithubImage />
             </a>
           </HomeMenuItem>

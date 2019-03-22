@@ -12,11 +12,11 @@
   {
     "type": "internal",
     "label": "About this Site",
-    "link": "/about-this-site"
+    "link": "/about"
   },
   {
     "type": "internal",
     "label": "Contact",
-    "link": "/contact"
+    "link": "/about"
   }
 ]
