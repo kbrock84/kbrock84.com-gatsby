@@ -1,6 +1,6 @@
 ---
-path: "/regex-for-everyone"
-title: "RegEx Necessities"
+path: "/regex-necessities-part-1"
+title: "RegEx Necessities Part 1"
 category: "Regular Expressions"
 keywords:
   [
@@ -18,7 +18,7 @@ keywords:
 
 ## TL;DR
 
-######_Regular expressions are easier than you think. Let's focus on the bare necessities in a quick and dirty reference with examples. If you are new to regular expressions or need a quick review on the basics, this is a great place to start._
+######_Regular expressions are easier than you think. Let's focus on the bare necessities in a quick and dirty reference with examples in JavaScript. If you are new to regular expressions or need a quick review on the basics, this is a great place to start._
 
 ## What is Regex?
 
@@ -28,8 +28,11 @@ Regular expressions are a concise language for matching patterns of text. In Jav
 /pizza/.test(entree);
 ```
 
-In the above example, if the entree variable contained `pizza` anywhere within the string, it will return true. Some examples that will return true:
-`pizza` `pizzas` `spizzas` `i like to eat pizza`
+#
+
+_Hint: If you would like to follow along and play with some of these expressions, I've found [Regex Pal](https://www.regexpal.com/) to be very helpful_
+
+In the above example, if the `entree` variable contained `pizza` anywhere within the string, it will return true. Some examples that will return true: `pizza` `pizzas` `spizzas` `i like to eat pizza`.
 
 #
 
@@ -60,10 +63,17 @@ The simplest operator, `*` matches anything character or combination of characte
 const matchRed = /red*/;
 matchRed.test("reddit"); // returns true
 matchRed.test("credit"); // returns true
-matchRed.test("brew"); // returns false
+matchRed.test("brew"); // returns true
+matchRed.test("book"); // returns false
 ```
 
-So what's happening here? The wildcard will match any combination of text **after** the combination `red` is found. It's that simple. Let's move on.
+So what's happening here? The wildcard will match any combination of text **after** the combination `re` is found. But wait! We wanted to match `red` not `re`. How do we remedy this? The `*` makes the last character an optional one, so really it matches anything. We can add an extra character to the expression using the `.` operator like this:
+
+```javascript
+/red.*/.test("brew"); //returns false
+```
+
+More on the `.` below.
 
 ### The Dot `.`
 
@@ -137,7 +147,7 @@ matchMoo.test("the cow says moot"); // returns false
 matchMoo.test("the cow says smoo"); // returns false
 ```
 
-Simple enough. If the word `moo` and only that word is anywhere in the scentance, it will return true.
+Simple enough. If the word `moo` and only that word is anywhere in the sentence, it will return true.
 
 ### Character Classes `[]`
 
@@ -151,16 +161,16 @@ Character classes are a powerful part of regex. In the above example, any word c
 ```javascript
 /[a-e]/.test("banana"); // returns true
 /[A-E]/.test("banana"); // returns false
-/[12-42]/.test("The number 36"); // returns true
+/[1-5]/.test("The number 3"); // returns true
 ```
 
 Inside character classes we can define ranges of numbers, lowercase characters or uppercase characters. You can even combine them.
 
 ```javascript
-const matchThis = /[a-eA-E12-42]/;
+const matchThis = /[a-eA-E1-5]/;
 matchThis.test("banana"); // returns true
 matchThis.test("BANANA"); // returns true
-matchThis.test("the number 36"); // returns true
+matchThis.test("3"); // returns true
 ```
 
 Now we have one regular expression to match all words containing letters from a to e and numbers from 12 to 42.
@@ -205,7 +215,7 @@ Modifiers are less about matching a pattern, but help describe how you would lik
 /c/i.test("Coffee"); // returns true
 ```
 
-This one is pretty self explanitory. Placing the `i` modifier after the expression allows us to match anything containing a lower case `c` and an uppercase `C`.
+This one is pretty self explanatory. Placing the `i` modifier after the expression allows us to match anything containing a lower case `c` and an uppercase `C`.
 
 ```javascript
 const matchBat = /bat/i;
@@ -233,7 +243,7 @@ The multiline modifier allows the regular expression to look beyond any new line
 "apple".replace(/p/g, "b"); // returns abble
 ```
 
-A great way to use the JavaScript `String.replace` is with regular expressions. However, If you want to replace **all** occurences of a matched pattern, you need to include to `g` modifier to search globally. Without it, the above expression will only replace the first `p` it finds.
+A great way to use the JavaScript `String.replace` is with regular expressions. However, If you want to replace **all** occurrences of a matched pattern, you need to include to `g` modifier to search globally. Without it, the above expression will only replace the first `p` it finds.
 
 ```javascript
 "apple".replace(/p/); // returns abple
