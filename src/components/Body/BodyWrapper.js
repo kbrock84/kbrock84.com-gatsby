@@ -8,12 +8,16 @@ const BodyWrapper = styled.div`
     ${props =>
       props.isHome
         ? "grid-template-columns: auto"
-        : "grid-template-columns: 78px auto"};
+        : "grid-template-columns: auto"};
+    ${props => (props.mobile ? "padding-top: 78px;" : "padding-left: 78px")}
   }
   grid-gap: ${props => (props.isHome ? "32px" : "0")};
 
   @media (max-width: 766px) {
-    ${props => (!props.isHome ? "display: flex; flex-direction: column;" : "")}
+    ${props =>
+      !props.isHome
+        ? "display: flex; flex-direction: column; padding-top: 78px;"
+        : ""}
   }
 
   @media screen and (max-device-width: 768) and (orientation: portrait) {

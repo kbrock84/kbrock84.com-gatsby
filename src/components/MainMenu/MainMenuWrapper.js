@@ -5,6 +5,9 @@ const MainMenuWrapper = styled.div`
   background-color: #0f0f0f;
   height: ${props => (props.mobile ? "70px" : "100vh")};
   padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
   margin: 0;
   z-index: 1000000;
   transition: transform 500ms;
