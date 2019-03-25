@@ -17,7 +17,6 @@ const TwitterImage = () => {
     }
   `);
 
-  console.log(data);
   return <Img fixed={data.placeholderImage.childImageSharp.fixed} />;
 };
 
