@@ -2,7 +2,6 @@ import React from "react";
 import LetterContainer from "./LetterContainer";
 
 const CircularText = props => {
-  const height = props.r * 2 + 4;
   return (
     <div
       style={{

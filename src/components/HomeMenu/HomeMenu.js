@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RadialRender from "react-radial-render";
 import HomeMenuWrapper from "./HomeMenuWrapper";
-import HomeMenuItem from "./HomeMenuItem";
 import { PageContext } from "../../PageContext/PageContext";
 import PopIn from "../../Animations/PopIn";
 import ExpandOnHover from "../../Animations/ExpandOnHover";

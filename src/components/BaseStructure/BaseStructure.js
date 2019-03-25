@@ -46,7 +46,7 @@ const render = (title, data, childComponents) => {
       postData.push({
         category: cat,
         children: data.allMarkdownRemark.edges
-          .filter(e => e.node.frontmatter.category == cat.title)
+          .filter(e => e.node.frontmatter.category === cat.title)
           .map(e => ({
             title: e.node.frontmatter.title,
             path: e.node.frontmatter.path

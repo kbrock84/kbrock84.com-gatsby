@@ -34,7 +34,7 @@ const Home = props => {
       <Layer>
         <HomeMenu menuImageSet={props.menuImageSet}>
           {props.homeMenuItems.map((item, i) =>
-            item.type == "internal" ? (
+            item.type === "internal" ? (
               <MenuChildLink to={item.link} key={`main-menu-child-${i}`}>
                 <HomeMenuItem
                   r={context.mobile ? 28 : 34}
