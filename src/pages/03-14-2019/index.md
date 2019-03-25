@@ -18,7 +18,7 @@ keywords:
 
 ## TL;DR
 
-######_Regular expressions are easier than you think. Let's focus on the bare necessities in a quick and dirty reference with examples in JavaScript. If you are new to regular expressions or need a quick review on the basics, this is a great place to start._
+######_Regular expressions are easier than you think. Let's focus on the bare necessities in a quick and dirty reference with examples in JavaScript. If you are new to regular expressions or need a quick review on the basics, this is a great place to start. We'll dive deeper into use cases in part 2._
 
 ## What is Regex?
 
@@ -40,7 +40,7 @@ In the above example, if the `entree` variable contained `pizza` anywhere within
 
 Regular expressions can look intimidating if you haven't had some experience with them. If you can write code you can learn regular expressions. It's just syntax and almost every language supports them. I use regular expressions almost daily to search for files with standard naming conventions, or just those files someone is looking for, you know, on that server that so many people have touched.
 
-There are however, some cases where you should just reach for a library. A notorious example is validating email with high accuracy. If a regular expression gets too complex, it can become difficult to debug and maintane. So let someone else do that work if you can.
+There are however, some cases where you should just reach for a library. A notorious example is validating email with high accuracy. If a regular expression gets too complex, it can become difficult to debug and maintain. So let someone else do that work if you can.
 
 Okay lets look at the operators first. Remember, this is not a comprehensive list. Just enough to get started. I'll list resources at the end.
 
@@ -101,7 +101,7 @@ const matchAt = /\wat/;
 matchAt.test("cat"); // returns true
 ```
 
-_Almost_ identical to the `.` operator, The `\w` operator matches any _word_ character one time. This meants it will match any letter or number (and also underscores `_`).
+_Almost_ identical to the `.` operator, The `\w` operator matches any _word_ character one time. This means it will match any letter or number (and also underscores `_`).
 
 ```javascript
 const matchAt = /.at/
@@ -249,4 +249,6 @@ A great way to use the JavaScript `String.replace` is with regular expressions. 
 "apple".replace(/p/); // returns abple
 ```
 
-### Putting it All Together
+#
+
+#### That's all for now. Stay tuned for _Regex Necessities Part 2_, where we dive deeper into use cases, putting it all together.
