@@ -56,7 +56,6 @@ const render = (title, data, childComponents) => {
     return (
       <>
         <BaseStructureWrappper>
-          <div style={{ width: "78p" }} />
           <Body title={title} categories={postData}>
             {childComponents}
           </Body>
