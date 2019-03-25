@@ -23,6 +23,7 @@ const HomeMenu = props => {
                 {React.Children.toArray(props.children).map((child, i) => {
                   return (
                     <PopIn
+                      key={`main-menu-item-${i}`}
                       pose={animationTrigger ? "visible" : "hidden"}
                       delay={40 * i}
                     >

@@ -21,6 +21,7 @@ const CircularText = props => {
       >
         {props.text.split("").map((char, index) => (
           <LetterContainer
+            key={`circular-text-${index}`}
             r={props.r}
             style={{
               transform: `
