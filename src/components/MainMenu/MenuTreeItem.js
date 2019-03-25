@@ -85,19 +85,14 @@ class MenuTreeItem extends Component {
       <>
         <MenuItemWrapper
           onClick={this.toggleExpandedState.bind(this)}
-          color={`rgba(255, 100, 255)`}
+          color={`rgb(255, 100, 255)`}
           deviders={false}
         >
           <RotateChild
             angle={!childState.expanded ? "-90deg" : "0deg"}
             style={{ marginRight: "4px" }}
           >
-            <Poly
-              r={6}
-              sides={3}
-              stroke={"none"}
-              fill={"rgba(255, 100, 255)"}
-            />
+            <Poly r={6} sides={3} stroke={"none"} fill={"rgb(255, 100, 255)"} />
           </RotateChild>
           {this.props.item.title}
         </MenuItemWrapper>
@@ -113,7 +108,7 @@ class MenuTreeItem extends Component {
                 ref={this.childRefs[i]}
                 deviders={true}
               >
-                <MainMenuLink color={`rgba(200, 180, 255)`} to={child.path}>
+                <MainMenuLink color={`rgb(200, 180, 255)`} to={child.path}>
                   {child.title}
                 </MainMenuLink>
               </MenuItemWrapper>
