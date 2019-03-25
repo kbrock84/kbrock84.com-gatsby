@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 const HomeMenuItem = styled.div`
-  ${() => console.log("Home Menu Item Props:")}
-  ${props => console.log(props)}
   border: none;
   border-radius: ${props => props.r}px;
   width: ${props => props.r * 2}px;

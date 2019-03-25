@@ -38,7 +38,6 @@ export class PageContextProvider extends Component {
   setIsMobile = value => {
     this.setState(prevState => {
       prevState.mobile = value;
-      console.log("setting mobile to: " + prevState.mobile);
       return prevState;
     });
   };
@@ -80,8 +79,6 @@ export class PageContextProvider extends Component {
       this.setState(prevState => {
         prevState.menuChildState[key] = childState;
       });
-    } else {
-      console.log(childState);
     }
     return childState;
   };
