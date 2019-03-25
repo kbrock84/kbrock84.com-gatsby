@@ -12,7 +12,9 @@ class MenuTreeItem extends Component {
     this.childRefs = this.props.childItems.map(c => React.createRef());
     this.state = {
       padding: 12,
-      renderTrigger: 0
+      renderTrigger: 0,
+      childState: { expanded: false, height: 0 },
+      isChildStateSet: false
     };
   }
 
@@ -63,6 +65,25 @@ class MenuTreeItem extends Component {
     }
   }
 
+  componentDidUpdate() {
+    if (!this.state.isChildStateSet) {
+      this.setState(prevState => {
+        prevState.childState = this.context.getMenuChildState(
+          this.props.localStoreKey
+        );
+        prevState.isChildStateSet = true;
+        return prevState;
+      });
+    }
+    if (this.context.resetMenuLayout) {
+      if (this.context.resetMenuLayout && !this.state.childState.expanded) {
+        this.toggleExpandedState(true);
+      } else {
+        this.setLayout();
+      }
+    }
+  }
+
   static contextType = PageContext;
 
   toggleExpandedState() {
@@ -73,14 +94,6 @@ class MenuTreeItem extends Component {
   }
 
   render() {
-    const childState = this.context.getMenuChildState(this.props.localStoreKey);
-    if (this.context.resetMenuLayout) {
-      if (this.context.resetMenuLayout && !childState.expanded) {
-        this.toggleExpandedState(true);
-      } else {
-        this.setLayout();
-      }
-    }
     return (
       <>
         <MenuItemWrapper
@@ -89,7 +102,7 @@ class MenuTreeItem extends Component {
           deviders={false}
         >
           <RotateChild
-            angle={!childState.expanded ? "-90deg" : "0deg"}
+            angle={!this.state.childState.expanded ? "-90deg" : "0deg"}
             style={{ marginRight: "4px" }}
           >
             <Poly r={6} sides={3} stroke={"none"} fill={"rgb(255, 100, 255)"} />
@@ -98,8 +111,10 @@ class MenuTreeItem extends Component {
         </MenuItemWrapper>
         <MenuListWrapper
           padding={this.state.padding}
-          expanded={childState.expanded || this.context.resetMenuLayout}
-          expandTo={childState.height}
+          expanded={
+            this.state.childState.expanded || this.context.resetMenuLayout
+          }
+          expandTo={this.state.childState.height}
         >
           {this.props.childItems.map((child, i) => {
             return (
