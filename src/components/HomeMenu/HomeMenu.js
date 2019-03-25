@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import RadialRender from "react-radial-render";
 import HomeMenuWrapper from "./HomeMenuWrapper";
 import { PageContext } from "../../PageContext/PageContext";
@@ -7,7 +7,7 @@ import ExpandOnHover from "../../Animations/ExpandOnHover";
 
 const HomeMenu = props => {
   const [animationTrigger, triggerAnimation] = useState(false);
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTimeout(() => triggerAnimation(true), 100);
   });
   return (
