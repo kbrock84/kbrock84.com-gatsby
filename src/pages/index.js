@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 import { PageContextProvider } from "../PageContext/PageContext";
 import Index from "../components/IndexPageContainer/Index";
+import SEO from "../components/seo";
 
 //import SEO from "../components/seo";
 
@@ -50,9 +51,27 @@ const IndexPage = () => (
         .split(",\n")
         .map(s => s.replace(/\s\d{3}w/, ""));
       return (
-        <PageContextProvider>
-          <Index srcSet={srcSet} menuItems={menuItems} />
-        </PageContextProvider>
+        <>
+          <SEO
+            title="Home"
+            keywords={[
+              `kevin`,
+              `brock`,
+              `web`,
+              `developer`,
+              `react`,
+              `reactjs`,
+              `gatsby`,
+              `gatsbyjs`,
+              `regex`,
+              `regularexpressions`,
+              `expressions`
+            ]}
+          />
+          <PageContextProvider>
+            <Index srcSet={srcSet} menuItems={menuItems} />
+          </PageContextProvider>
+        </>
       );
     }}
   />

@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`
+    title: `Kevin Brock - Web Developer`,
+    description: `React, Gatsby, Nodejs and other web development topics with Kevin Brock`,
+    author: `@kbrock84`
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -48,8 +48,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#ff0077`,
+        theme_color: `#ff0077`,
         display: `minimal-ui`,
         icon: `src/images/sticky-bot_dark.jpg` // This path is relative to the root of the site.
       }
