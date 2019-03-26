@@ -48,13 +48,13 @@ const AboutMe = () => {
         pose={isTitleVisible ? "enter" : "exit"}
         style={{
           display: "inline-block",
-          width: context.mobile ? "220px" : "250px"
+          width: context.mobile ? "160px" : "270px"
         }}
       >
         <h1
           style={{
             display: "block",
-            fontSize: context.mobile ? "2em" : "2.4em"
+            fontSize: context.mobile ? "1.6em" : "2.4em"
           }}
         >
           Kevin Brock

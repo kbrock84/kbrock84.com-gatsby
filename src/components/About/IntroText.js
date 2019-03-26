@@ -3,7 +3,14 @@ import Typist from "react-typist";
 
 const IntroText = () => {
   return (
-    <div style={{ width: "100%", paddingRight: "32px", maxWidth: "650px" }}>
+    <div
+      style={{
+        width: "100%",
+        paddingRight: "32px",
+        maxWidth: "650px",
+        minHeight: "500px"
+      }}
+    >
       <Typist avgTypingDelay={10}>
         <code style={{ color: "#00CCCC" }}>
           Hi!, <Typist.Delay ms={300} />
