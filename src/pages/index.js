@@ -1,12 +1,13 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 import Home from "../components/Home/Home";
-import IndexPageContainer from "../components/IndexPageContainer/IndexPageContainer";
 import { PageContextProvider } from "../PageContext/PageContext";
+import styled from "styled-components";
+import Index from "../components/IndexPageContainer/Index";
 
 //import SEO from "../components/seo";
 
-const IndexPage = props => (
+const IndexPage = () => (
   <StaticQuery
     query={graphql`
       {
@@ -52,9 +53,7 @@ const IndexPage = props => (
         .map(s => s.replace(/\s\d{3}w/, ""));
       return (
         <PageContextProvider>
-          <IndexPageContainer>
-            <Home menuImageSet={srcSet} homeMenuItems={menuItems} />
-          </IndexPageContainer>
+          <Index srcSet={srcSet} menuItems={menuItems} />
         </PageContextProvider>
       );
     }}
