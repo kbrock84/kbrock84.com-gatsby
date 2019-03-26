@@ -2,6 +2,7 @@ import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
 import Helmet from "react-helmet";
 import BaseStructure from "../components/BaseStructure/BaseStructure";
+import { PageContextProvider } from "../PageContext/PageContext";
 
 export default function Template({ data }) {
   return (
@@ -29,15 +30,20 @@ export default function Template({ data }) {
           title: e.node.frontmatter.title
         }));
         return (
-          <BaseStructure title={"kevDevBlog"}>
-            {postExcerpts.map((excerpt, i) => (
-              <div style={{ paddingBottom: "24px" }} key={`post-excerpt-${i}`}>
-                <h2>{excerpt.title}</h2>
-                <div dangerouslySetInnerHTML={{ __html: excerpt.html }} />
-                <Link to={excerpt.path}>Continue Reading...</Link>
-              </div>
-            ))}
-          </BaseStructure>
+          <PageContextProvider>
+            <BaseStructure title={"kevDevBlog"}>
+              {postExcerpts.map((excerpt, i) => (
+                <div
+                  style={{ paddingBottom: "24px" }}
+                  key={`post-excerpt-${i}`}
+                >
+                  <h2>{excerpt.title}</h2>
+                  <div dangerouslySetInnerHTML={{ __html: excerpt.html }} />
+                  <Link to={excerpt.path}>Continue Reading...</Link>
+                </div>
+              ))}
+            </BaseStructure>
+          </PageContextProvider>
         );
       }}
     />

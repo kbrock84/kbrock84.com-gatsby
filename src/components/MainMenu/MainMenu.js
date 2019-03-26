@@ -8,15 +8,10 @@ import { PageContext } from "../../PageContext/PageContext.js";
 class MainMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      visible: Boolean(localStorage.getItem("menuIsVisible")),
-      mobileLayout: Boolean(localStorage.getItem("menuIsMobileLayout"))
-    };
   }
 
   toggleMenuVisibility() {
     this.setState(prevState => {
-      localStorage.setItem("menuIsVisible", String(!prevState.visible));
       prevState.visible = !prevState.visible;
       return prevState;
     });

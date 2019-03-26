@@ -2,16 +2,19 @@ import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import BaseStructure from "../components/BaseStructure/BaseStructure";
+import { PageContextProvider } from "../PageContext/PageContext";
 
 export default function Template({ data }) {
   const { markdownRemark: post } = data;
 
   return (
-    <BaseStructure title={post.frontmatter.title}>
-      <div>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
-    </BaseStructure>
+    <PageContextProvider>
+      <BaseStructure title={post.frontmatter.title}>
+        <div>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </div>
+      </BaseStructure>
+    </PageContextProvider>
   );
 }
 

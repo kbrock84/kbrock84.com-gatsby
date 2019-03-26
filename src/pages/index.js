@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 import Home from "../components/Home/Home";
 import IndexPageContainer from "../components/IndexPageContainer/IndexPageContainer";
+import { PageContextProvider } from "../PageContext/PageContext";
 
 //import SEO from "../components/seo";
 
@@ -50,9 +51,11 @@ const IndexPage = props => (
         .split(",\n")
         .map(s => s.replace(/\s\d{3}w/, ""));
       return (
-        <IndexPageContainer>
-          <Home menuImageSet={srcSet} homeMenuItems={menuItems} />
-        </IndexPageContainer>
+        <PageContextProvider>
+          <IndexPageContainer>
+            <Home menuImageSet={srcSet} homeMenuItems={menuItems} />
+          </IndexPageContainer>
+        </PageContextProvider>
       );
     }}
   />
