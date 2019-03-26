@@ -2,3 +2,9 @@ body,
 html {
   overflow: hidden;
 }
+
+p,
+code,
+div {
+  font-size: 1.1rem;
+}

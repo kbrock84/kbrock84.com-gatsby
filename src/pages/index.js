@@ -1,8 +1,6 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
-import Home from "../components/Home/Home";
 import { PageContextProvider } from "../PageContext/PageContext";
-import styled from "styled-components";
 import Index from "../components/IndexPageContainer/Index";
 
 //import SEO from "../components/seo";

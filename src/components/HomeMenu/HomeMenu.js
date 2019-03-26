@@ -19,7 +19,7 @@ const HomeMenu = props => {
               mobile={context.mobile}
               menuImageSet={props.menuImageSet}
             >
-              <RadialRender r={context.mobile ? 130 : 230}>
+              <RadialRender r={context.mobile ? 130 : 250}>
                 {React.Children.toArray(props.children).map((child, i) => {
                   return (
                     <PopIn

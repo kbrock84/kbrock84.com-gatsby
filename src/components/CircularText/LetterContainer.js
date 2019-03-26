@@ -5,10 +5,10 @@ const LetterContainer = styled.div`
   margin: 0;
   padding: 0;
   width: 8px;
-  line-height: 12px;
+  line-height: ${props => props.fontSize};
   vertical-align: text-bottom;
   font-family: monospace;
-  font-size: 12px;
+  font-size: ${props => props.fontSize};
   display: flex;
   flex-direction: column-reverse;
   align-items: center;

@@ -28,6 +28,7 @@ const CircularText = props => {
                translate(${props.r - 4}px, ${props.r}px)
                 rotate(${2.5 * index * -1}deg)`
             }}
+            fontSize={props.fontSize}
           >
             {char}
           </LetterContainer>

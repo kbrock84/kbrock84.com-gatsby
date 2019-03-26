@@ -37,7 +37,7 @@ const Home = props => {
             item.type === "internal" ? (
               <MenuChildLink to={item.link} key={`main-menu-child-${i}`}>
                 <HomeMenuItem
-                  r={context.mobile ? 28 : 34}
+                  r={context.mobile ? 30 : 40}
                   mobile={context.mobile}
                 >
                   {item.label}
@@ -45,7 +45,7 @@ const Home = props => {
               </MenuChildLink>
             ) : null
           )}
-          <HomeMenuItem r={context.mobile ? 30 : 34} mobile={context.mobile}>
+          <HomeMenuItem r={context.mobile ? 32 : 40} mobile={context.mobile}>
             <a
               href={"https://twitter.com/kbrock84"}
               style={{ lineHeight: "0px" }}
@@ -53,7 +53,7 @@ const Home = props => {
               <TwitterImage />
             </a>
           </HomeMenuItem>
-          <HomeMenuItem r={context.mobile ? 30 : 34} mobile={context.mobile}>
+          <HomeMenuItem r={context.mobile ? 32 : 40} mobile={context.mobile}>
             <a
               href={"https://github.com/kbrock84"}
               style={{ lineHeight: "0px" }}
@@ -65,7 +65,7 @@ const Home = props => {
       </Layer>
       <Layer style={{ pointerEvents: "none" }}>
         <HomeHeading color={"#00ffff"}>
-          <KevinTitle fontSize={context.mobile ? "1.8em" : "2.5em"} />
+          <KevinTitle fontSize={context.mobile ? "1.6em" : "2.5em"} />
         </HomeHeading>
       </Layer>
       <Layer style={{ pointerEvents: "none" }}>
@@ -73,7 +73,8 @@ const Home = props => {
           text={
             "let coffee = { roast: extra bold, cream: true, sugar: false }; const dev = coffee => writeCode(coffee); const writeCode = coffee => dev(coffee);"
           }
-          r={context.mobile ? 185 : 170}
+          r={context.mobile ? 185 : 190}
+          fontSize={context.mobile ? "14px" : "16px"}
         />
       </Layer>
     </LayersWrapper>

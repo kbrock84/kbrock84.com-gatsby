@@ -8,11 +8,11 @@ const BaseStructureWrapper = styled.div`
   margin: 0;
 
   @media (max-width: 700px), (max-height: 400px) {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 
   @media (max-width: 500px) {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   @media only screen and (orientation: landscape) {
