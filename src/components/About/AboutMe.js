@@ -32,12 +32,9 @@ const AboutWrapper = styled.div`
   color: #ff00ee;
   padding-top: 100px;
   padding-left: 50px;
-  h1 {
-    font-size: ${props => (props.mobile ? "2em" : "2.4em")};
-  }
 `;
 
-const AboutMe = props => {
+const AboutMe = () => {
   const context = useContext(PageContext);
   const [isTitleVisible, setTitleVisibility] = useState(false);
   useLayoutEffect(() => {
@@ -46,17 +43,24 @@ const AboutMe = props => {
     }, 200);
   });
   return (
-    <AboutWrapper mobile={context.mobile}>
+    <AboutWrapper>
       <EnterTop
         pose={isTitleVisible ? "enter" : "exit"}
         style={{
           display: "inline-block",
-          width: context.mobile ? "180px" : "250px"
+          width: context.mobile ? "220px" : "250px"
         }}
       >
-        <h1 style={{ display: "block", width: "250px" }}>Kevin Brock</h1>
+        <h1
+          style={{
+            display: "block",
+            fontSize: context.mobile ? "2em" : "2.4em"
+          }}
+        >
+          Kevin Brock
+        </h1>
       </EnterTop>
-      <span style={{ marginRight: "12px" }}>
+      <span style={{ marginRight: "8px" }}>
         <PopIn
           style={{ display: "inline-block" }}
           pose={isTitleVisible ? "visible" : "hidden"}
