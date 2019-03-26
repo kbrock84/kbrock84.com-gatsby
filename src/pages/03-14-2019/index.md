@@ -18,7 +18,7 @@ keywords:
 
 ## TL;DR
 
-######_Regular expressions are easier than you think. Let's focus on the bare necessities in a quick and dirty reference with examples in JavaScript. If you are new to regular expressions or need a quick review on the basics, this is a great place to start. We'll dive deeper into use cases in part 2._
+Regular expressions are easier than you think. Let's focus on the bare necessities in a quick and dirty reference with examples in JavaScript. If you are new to regular expressions or need a quick review on the basics, this is a great place to start. We'll dive deeper into use cases in part 2.
 
 ## What is Regex?
 
