@@ -23,7 +23,7 @@ const ContentContainer = props => {
         <h1 style={{ width: "90%" }}>{props.title}</h1>
       </div>
       <ContentWrapper>{props.children}</ContentWrapper>
-      <div style={{ height: "48px" }} />
+      <div style={{ height: "70px" }} />
     </ContentContainerWrapper>
   );
 };
