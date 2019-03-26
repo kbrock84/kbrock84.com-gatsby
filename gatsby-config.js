@@ -5,6 +5,7 @@ module.exports = {
     author: `@gatsbyjs`
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -53,6 +54,7 @@ module.exports = {
         icon: `src/images/sticky-bot_dark.jpg` // This path is relative to the root of the site.
       }
     }
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
