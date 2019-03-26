@@ -173,7 +173,7 @@ matchThis.test("BANANA"); // returns true
 matchThis.test("3"); // returns true
 ```
 
-Now we have one regular expression to match all words containing letters from a to e and numbers from 12 to 42.
+Now we have one regular expression to match all words containing letters from a to e and numbers from 1 to 5.
 
 ### Start `^`
 
