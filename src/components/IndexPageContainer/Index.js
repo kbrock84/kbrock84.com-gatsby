@@ -11,7 +11,6 @@ const IndexPageContainer = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #080808;
-  background-image: ${props => "url(" + props.backgroundImage + ")"};
 `;
 
 const Index = props => {
