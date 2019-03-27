@@ -252,3 +252,12 @@ A great way to use the JavaScript `String.replace` is with regular expressions. 
 #
 
 #### That's all for now. Stay tuned for _Regex Necessities Part 2_, where we dive deeper into use cases, putting it all together.
+
+#
+
+### Resources
+[RegExp Object MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+
+[RegExp Reference w3schools](https://www.w3schools.com/jsref/jsref_obj_regexp.asp)
+
+[Regex Pal](https://www.regexpal.com/)
