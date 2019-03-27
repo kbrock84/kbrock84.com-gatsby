@@ -15,7 +15,6 @@ const StickyBotImage = () => {
     }
   `);
 
-  console.log(data);
   return <Img fixed={data.placeholderImage.childImageSharp.fixed} />;
 };
 
