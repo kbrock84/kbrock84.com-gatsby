@@ -26,6 +26,7 @@ const HomeMenu = props => {
                       key={`main-menu-item-${i}`}
                       pose={animationTrigger ? "visible" : "hidden"}
                       delay={40 * i}
+                      style={{ opacity: 0 }}
                     >
                       <ExpandOnHover>{child}</ExpandOnHover>
                     </PopIn>
