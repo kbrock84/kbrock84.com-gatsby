@@ -22,7 +22,7 @@ Regular expressions are easier than you think. Let's focus on the bare necessiti
 
 ## What is Regex?
 
-Regular expressions are a concise language for matching patterns of text. In JavaScript, a regular expression can be defined like this `/expression/`. In it's most basic form a regular expression can look like this:
+Regular expressions is a concise language for matching patterns of text. In JavaScript, a regular expression can be defined like this `/expression/`. In it's most basic form a regular expression can look like this:
 
 ```javascript
 /pizza/.test(entree);
@@ -38,9 +38,9 @@ In the above example, if the `entree` variable contained `pizza` anywhere within
 
 ## Don't Fear RegEx
 
-Regular expressions can look intimidating if you haven't had some experience with them. If you can write code you can learn regular expressions. It's just syntax and almost every language supports them. I use regular expressions almost daily to search for files with standard naming conventions, or just those files someone is looking for, you know, on that server that so many people have touched.
+Regular expressions can look intimidating if you haven't had some experience with them. If you can write code you can learn regular expressions. It's just syntax and almost every language supports them. I use regular expressions almost daily to search for files. You know, those files someone is looking for, on that server that so many people have touched. This can be maddening without the right tool.
 
-There are however, some cases where you should just reach for a library. A notorious example is validating email with high accuracy. If a regular expression gets too complex, it can become difficult to debug and maintain. So let someone else do that work if you can.
+There are however, some cases where you should just reach for a library. One notorious example is validating email. If a regular expression gets too complex, it can become difficult to debug and maintain. So let someone else do that work if you can.
 
 Okay lets look at the operators first. Remember, this is not a comprehensive list. Just enough to get started. I'll list resources at the end.
 
@@ -48,7 +48,7 @@ Okay lets look at the operators first. Remember, this is not a comprehensive lis
 
 There are a few must know operators. Master these and you will cover the majority of use cases. I'll start with an example, and then explain what's happening.
 
-It's important to note that the following examples are case sensitive. The expression `/C/` is different than the expression `/c/`. This can be changed with a _modifier_ which we'll discuss later.
+It's important to note that the following examples are case sensitive. The expression `/B/` is different than the expression `/b/`. This can be changed with a _modifier_ which we'll discuss later.
 
 ### The Wild Card `*`:
 
@@ -57,7 +57,7 @@ It's important to note that the following examples are case sensitive. The expre
 // returns true
 ```
 
-The simplest operator, `*` matches anything character or combination of characters for any length. Lets see some examples of matches and mismatches.
+The simplest operator, `*` matches any character or combination of characters for any length. Lets see some examples of matches and mismatches.
 
 ```javascript
 const matchRed = /red*/;
@@ -207,7 +207,7 @@ Both cases fail simply because they do not end in `e`.
 
 ## Modifiers
 
-Modifiers are less about matching a pattern, but help describe how you would like to search. In JavaScript we have 6 total, but the 3 must know modifiers are `i`, `m` and `g`. These modifiers can be used individually, or in any combination and are placed just after the last `/` like this `/expression/m` where m is the modifier.
+Modifiers are less about matching a pattern, but help describe how you would like to search. In JavaScript we have 6 total, but the 3 must know modifiers are `i`, `m` and `g`. These modifiers can be used individually, or in any combination and are placed just after the last `/` like this `/expression/m` where `m` is the modifier.
 
 ### Ignore Case `i`
 
@@ -252,3 +252,12 @@ A great way to use the JavaScript `String.replace` is with regular expressions. 
 #
 
 #### That's all for now. Stay tuned for _Regex Necessities Part 2_, where we dive deeper into use cases, putting it all together.
+
+#
+
+### Resources
+[RegExp Object MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+
+[RegExp Reference w3schools](https://www.w3schools.com/jsref/jsref_obj_regexp.asp)
+
+[Regex Pal](https://www.regexpal.com/)
