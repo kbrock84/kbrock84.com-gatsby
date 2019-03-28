@@ -53,6 +53,15 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/sticky-bot_dark.jpg` // This path is relative to the root of the site.
       }
+    },
+    {
+      resolve: "gatsby-plugin-sentry",
+      options: {
+        dsn: "https://a265c61cda3b4cf19f1926b4d52f900b@sentry.io/1424442",
+        environment: process.env.NODE_ENV,
+        enabled: (() =>
+          ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)()
+      }
     }
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
