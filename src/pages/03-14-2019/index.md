@@ -104,7 +104,7 @@ matchAt.test("cat"); // returns true
 _Almost_ identical to the `.` operator, The `\w` operator matches any _word_ character one time. This means it will match any letter or number (and also underscores `_`).
 
 ```javascript
-const matchAt = /.at/
+const matchAt = /\wat/
 matchAt.test("rat"); // returns true
 matchAt.test("bat"; // returns true
 matchAt.test("#at"; // returns false
