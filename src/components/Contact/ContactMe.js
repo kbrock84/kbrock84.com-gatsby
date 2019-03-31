@@ -35,13 +35,16 @@ const TansitionColor = posed.div({
   original: { color: "#00ffff" }
 });
 
-const TypeTextWrapper = styled.span`
+const TypeTextWrapper = styled.div`
   color: #00ffff;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  code {
+    font-size: 0.9em;
+  }
 `;
 
 const ContactMe = () => {
@@ -85,19 +88,22 @@ const ContactMe = () => {
         </ContactCard>
         <div>
           <TypeTextWrapper>
-            <TypeText>
-              <code>
-                @kbrock84
-                <br />
-                <a
-                  style={{ color: "#00ffff" }}
-                  href={"mailto:kevin@kbrock84.com"}
-                >
-                  kevin@kbrock84.com
-                </a>
-                <br />
-                425.301.4732
-              </code>
+            <TypeText avgTypingDelay={35}>
+              <code>@kbrock84</code>
+              <br />
+              <a
+                style={{ color: "#00ffff", textDecoration: "none" }}
+                href={"mailto:kevin@kbrock84.com"}
+              >
+                <code>kevin@kbrock84.com</code>
+              </a>
+              <br />
+              <a
+                style={{ color: "#00ffff", textDecoration: "none" }}
+                href={"tel:+14253014732"}
+              >
+                <code>425.301.4732</code>
+              </a>
             </TypeText>
           </TypeTextWrapper>
         </div>
