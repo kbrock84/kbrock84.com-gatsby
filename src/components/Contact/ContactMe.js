@@ -85,18 +85,23 @@ const ContactMe = () => {
         </ContactCard>
         <div>
           <TypeTextWrapper>
-            <TypeText>
+            <TypeText avgTypingDelay={35}>
               <code>
                 @kbrock84
                 <br />
                 <a
-                  style={{ color: "#00ffff" }}
+                  style={{ color: "#00ffff", textDecoration: "none" }}
                   href={"mailto:kevin@kbrock84.com"}
                 >
                   kevin@kbrock84.com
                 </a>
                 <br />
-                425.301.4732
+                <a
+                  style={{ color: "#00ffff", textDecoration: "none" }}
+                  href={"tel:+14253014732"}
+                >
+                  425.301.4732
+                </a>
               </code>
             </TypeText>
           </TypeTextWrapper>
