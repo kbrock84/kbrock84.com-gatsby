@@ -1,20 +1,25 @@
 import React from "react";
-import Helmet from "react-helmet";
+import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import BaseStructure from "../components/BaseStructure/BaseStructure";
 import { PageContextProvider } from "../PageContext/PageContext";
 
 export default function Template({ data }) {
   const { markdownRemark: post } = data;
-
   return (
-    <PageContextProvider>
-      <BaseStructure title={post.frontmatter.title}>
-        <div>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </div>
-      </BaseStructure>
-    </PageContextProvider>
+    <>
+      <SEO
+        title={post.frontmatter.title}
+        keywords={post.frontmatter.keywords}
+      />
+      <PageContextProvider>
+        <BaseStructure title={post.frontmatter.title}>
+          <div>
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          </div>
+        </BaseStructure>
+      </PageContextProvider>
+    </>
   );
 }
 
@@ -25,6 +30,7 @@ export const postQuery = graphql`
       frontmatter {
         path
         title
+        keywords
       }
     }
   }
