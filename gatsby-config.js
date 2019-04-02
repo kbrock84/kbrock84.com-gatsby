@@ -45,8 +45,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Kevin Brock - Web Developer`,
+        short_name: `Kevin Brock`,
         start_url: `/`,
         background_color: `#ff0077`,
         theme_color: `#ff0077`,
