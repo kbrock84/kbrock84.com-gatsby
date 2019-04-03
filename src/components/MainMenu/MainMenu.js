@@ -3,7 +3,7 @@ import MainMenuWrapper from "./MainMenuWrapper";
 import NavButton from "../NavButton/NavButton";
 import MenuTreeItem from "./MenuTreeItem";
 import AllItemsContainer from "./AllItemsContainer";
-import { PageContext } from "../../PageContext/PageContext.js";
+import { PageContext } from "../../PageContext/PageContext";
 
 class MainMenu extends Component {
   constructor(props) {
