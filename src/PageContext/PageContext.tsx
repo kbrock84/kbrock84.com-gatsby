@@ -28,7 +28,7 @@ export class PageContextProvider extends Component<{}, ContextState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      visible: true,
+      visible: false,
       mobile: true,
       firstMenuRender: true,
       resetMenuLayout: false,
