@@ -28,7 +28,7 @@ export class PageContextProvider extends Component<{}, ContextState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      visible: false,
+      visible: true,
       mobile: true,
       firstMenuRender: true,
       resetMenuLayout: false,
@@ -46,9 +46,7 @@ export class PageContextProvider extends Component<{}, ContextState> {
   throttled: boolean = false;
 
   toggleVisibility() {
-    this.setState(prevState => {
-      visible: !prevState.visible;
-    });
+    this.setState(prevState => ({ visible: !prevState.visible }));
   }
 
   setResetMenuLayout(value: boolean) {
