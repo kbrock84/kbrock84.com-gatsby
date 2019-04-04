@@ -1,9 +1,31 @@
 import React, { Component } from "react";
 
-export const PageContext = React.createContext();
+export interface ContextState {
+  visible: boolean;
+  mobile: boolean;
+  firstMenuRender: boolean;
+  resetMenuLayout: boolean;
+  menuChildState: any;
+  setFirstMenuRender?(value: boolean): void;
+  setMenuChildExpandedState?(key: string, value: boolean): void;
+  setMenuChildExpandedHeight?(key: string, height: number): void;
+  setResetMenuLayout?(value: boolean): void;
+  setIsMobile?(value: boolean): void;
+  getMenuChildState?(key: string): { expanded: boolean; height: number };
+  toggleVisibility?(value: boolean): void;
+}
 
-export class PageContextProvider extends Component {
-  constructor(props) {
+const defaultState: ContextState = {
+  visible: false,
+  mobile: true,
+  firstMenuRender: true,
+  resetMenuLayout: false,
+  menuChildState: {}
+};
+export const PageContext = React.createContext(defaultState);
+
+export class PageContextProvider extends Component<{}, ContextState> {
+  constructor(props: {}) {
     super(props);
     this.state = {
       visible: false,
@@ -21,44 +43,34 @@ export class PageContextProvider extends Component {
     };
   }
 
-  toggleVisibility = () => {
-    this.setState(prevState => {
-      prevState.visible = !prevState.visible;
-      return prevState;
-    });
-  };
+  throttled: boolean = false;
 
-  setResetMenuLayout = value => {
-    this.setState(prevState => {
-      prevState.resetMenuLayout = value;
-      return prevState;
-    });
-  };
-
-  setIsMobile = value => {
-    this.setState(prevState => {
-      prevState.mobile = value;
-      return prevState;
-    });
-  };
-
-  setFirstMenuRender(value) {
-    this.setState(prevState => {
-      prevState.firstRender = value;
-      return prevState;
-    });
+  toggleVisibility() {
+    this.setState(prevState => ({ visible: !prevState.visible }));
   }
 
-  setMenuChildExpandedState = (key, expanded) => {
+  setResetMenuLayout(value: boolean) {
+    this.setState({ resetMenuLayout: value });
+  }
+
+  setIsMobile(value: boolean) {
+    this.setState({ mobile: value });
+  }
+
+  setFirstMenuRender(value: boolean) {
+    this.setState({ firstMenuRender: value });
+  }
+
+  setMenuChildExpandedState(key: string, expanded: boolean) {
     this.setState(prevState => {
       let menuChild = prevState.menuChildState[key];
       menuChild.expanded = expanded;
       prevState.menuChildState[key] = menuChild;
       return prevState;
     });
-  };
+  }
 
-  setMenuChildExpandedHeight = (key, height) => {
+  setMenuChildExpandedHeight(key: string, height: number) {
     this.setState(prevState => {
       let menuChild;
       if (prevState.menuChildState[key]) {
@@ -70,9 +82,9 @@ export class PageContextProvider extends Component {
       }
       return prevState;
     });
-  };
+  }
 
-  getMenuChildState = key => {
+  getMenuChildState(key: string) {
     let childState = this.state.menuChildState[key];
     if (childState === undefined) {
       childState = { expanded: true, height: 0 };
@@ -81,27 +93,27 @@ export class PageContextProvider extends Component {
       });
     }
     return childState;
-  };
+  }
 
   setLayout() {
     setTimeout(() => {
       if (window.innerWidth < 766 && !this.state.mobile) {
-        if (this.state.mobile !== true) {
+        if (!this.state.mobile) {
           this.setIsMobile(true);
         }
       } else if (window.innerWidth >= 766 && this.state.mobile) {
-        if (this.state.mobile !== false) {
+        if (this.state.mobile) {
           this.setIsMobile(false);
         }
       }
-      this.state.setResetMenuLayout(true);
+      this.state.setResetMenuLayout!(true);
       this.throttled = false;
     }, 200);
     this.throttled = true;
   }
 
   componentDidMount() {
-    this.state.setIsMobile(window.innerWidth < 766);
+    this.state.setIsMobile!(window.innerWidth < 766);
     window.addEventListener("resize", this.setLayout.bind(this));
   }
 

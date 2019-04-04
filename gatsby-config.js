@@ -62,7 +62,9 @@ module.exports = {
         enabled: (() =>
           ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)()
       }
-    }
+    },
+
+    `gatsby-plugin-typescript`
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline

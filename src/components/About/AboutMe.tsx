@@ -1,9 +1,9 @@
 import React, { useState, useContext, useLayoutEffect } from "react";
-import GithubImage from "../../components/GithubImage";
-import TwitterImage from "../../components/TwitterImage";
+import GithubImage from "../GithubImage";
+import TwitterImage from "../TwitterImage";
 import posed from "react-pose";
-import PopIn from "../../Animations/PopIn.js";
-import ExpandOnHover from "../../Animations/ExpandOnHover.js";
+import PopIn from "../../Animations/PopIn";
+import ExpandOnHover from "../../Animations/ExpandOnHover";
 import styled from "styled-components";
 import { PageContext } from "../../PageContext/PageContext";
 import IntroText from "./IntroText";
