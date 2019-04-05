@@ -1,11 +1,37 @@
-import React from "react";
-import { StaticQuery } from "gatsby";
+import React, { FunctionComponent } from "react";
+import { StaticQuery, graphql } from "gatsby";
 import BaseStructureWrappper from "./BaseStructureWrapper";
 
 import Body from "../Body/Body";
 import "../../components/body-styles.css";
 
-export const BaseStructure = props => {
+type QueryData = {
+  allPostCategoriesJson: {
+    edges: {
+      node: {
+        label: string;
+      };
+    }[];
+  };
+  allMarkdownRemark: {
+    edges: {
+      node: {
+        frontmatter: {
+          title: string;
+          path: string;
+          category: string;
+        };
+      };
+    }[];
+  };
+};
+
+type PostData = {
+  category: any;
+  children: { title: string; path: string }[];
+}[];
+
+export const BaseStructure: FunctionComponent<{ title: string }> = props => {
   return (
     <StaticQuery
       query={graphql`
@@ -30,17 +56,17 @@ export const BaseStructure = props => {
           }
         }
       `}
-      render={data => render(props.title, data, props.children)}
+      render={data => render(props.title, data as QueryData, props.children)}
     />
   );
 };
 
-const render = (title, data, childComponents) => {
+const render = (title: string, data: QueryData, childComponents: any) => {
   {
     const categories = data.allPostCategoriesJson.edges.map(e => ({
       title: e.node.label
     }));
-    const postData = [];
+    const postData: PostData = [];
 
     categories.forEach(cat => {
       postData.push({
