@@ -5,16 +5,22 @@ import MenuTreeItem from "./MenuTreeItem";
 import AllItemsContainer from "./AllItemsContainer";
 import { PageContext } from "../../PageContext/PageContext";
 
-class MainMenu extends Component {
-  constructor(props) {
+interface MenuState {
+  visible: boolean;
+}
+
+interface MenuProps {
+  width: number;
+  menuItems: PostData;
+}
+
+class MainMenu extends Component<MenuProps, MenuState> {
+  constructor(props: MenuProps) {
     super(props);
   }
 
   toggleMenuVisibility() {
-    this.setState(prevState => {
-      prevState.visible = !prevState.visible;
-      return prevState;
-    });
+    this.setState(prevState => ({ visible: prevState.visible }));
   }
 
   static contextType = PageContext;
@@ -32,7 +38,7 @@ class MainMenu extends Component {
         >
           {this.props.menuItems
             ? this.props.menuItems.map((item, i) => {
-                const key = `${item.category.title.replace(/\s/, "_")}_${i}`;
+                const key = `${item.category.replace(/\s/, "_")}_${i}`;
                 return (
                   <MenuTreeItem
                     item={item.category}
