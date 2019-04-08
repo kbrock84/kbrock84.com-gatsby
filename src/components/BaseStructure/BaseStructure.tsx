@@ -26,11 +26,6 @@ type QueryData = {
   };
 };
 
-type PostData = {
-  category: any;
-  children: { title: string; path: string }[];
-}[];
-
 export const BaseStructure: FunctionComponent<{ title: string }> = props => {
   return (
     <StaticQuery
@@ -63,16 +58,14 @@ export const BaseStructure: FunctionComponent<{ title: string }> = props => {
 
 const render = (title: string, data: QueryData, childComponents: any) => {
   {
-    const categories = data.allPostCategoriesJson.edges.map(e => ({
-      title: e.node.label
-    }));
+    const categories = data.allPostCategoriesJson.edges.map(e => e.node.label);
     const postData: PostData = [];
 
     categories.forEach(cat => {
       postData.push({
         category: cat,
         children: data.allMarkdownRemark.edges
-          .filter(e => e.node.frontmatter.category === cat.title)
+          .filter(e => e.node.frontmatter.category === cat)
           .map(e => ({
             title: e.node.frontmatter.title,
             path: e.node.frontmatter.path

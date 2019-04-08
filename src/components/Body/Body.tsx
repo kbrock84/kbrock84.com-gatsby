@@ -1,11 +1,14 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, FunctionComponent } from "react";
 import BodyWrapper from "./BodyWrapper";
 import MainMenu from "../MainMenu/MainMenu";
 import ContentContainer from "../ContentContainer/ContentContainer";
 import { PageContext } from "../../PageContext/PageContext";
 
-const Body = props => {
+const Body: FunctionComponent<{
+  title: string;
+  categories: PostData;
+}> = props => {
   const context = useContext(PageContext);
 
   return (

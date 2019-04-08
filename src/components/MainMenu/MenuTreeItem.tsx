@@ -6,10 +6,27 @@ import RotateChild from "./RotateChild";
 import Poly from "react-svg-polygon";
 import { PageContext } from "../../PageContext/PageContext";
 
-class MenuTreeItem extends Component {
-  constructor(props) {
+interface MenuTreeItemProps {
+  childItems: PostDataChildren[];
+  width: number;
+  depth: number;
+  item: string;
+  key: string;
+  localStoreKey: string;
+  fontColor: string;
+}
+
+interface MenuTreeItemState {
+  padding?: number;
+  renderTrigger?: number;
+  childState?: { expanded: boolean; height: number };
+  isChildStateSet?: boolean;
+}
+
+class MenuTreeItem extends Component<MenuTreeItemProps, MenuTreeItemState> {
+  constructor(props: MenuTreeItemProps) {
     super(props);
-    this.childRefs = this.props.childItems.map(c => React.createRef());
+    this.childRefs = this.props.childItems.map(_ => React.createRef());
     this.state = {
       padding: 12,
       renderTrigger: 0,
@@ -18,14 +35,15 @@ class MenuTreeItem extends Component {
     };
   }
 
+  childRefs: any[];
+
   componentDidMount() {
     this.setLayout();
   }
 
   triggerRerender() {
     this.setState(prevState => {
-      prevState.renderTrigger++;
-      return prevState;
+      renderTrigger: prevState.renderTrigger! + 1;
     });
   }
 
@@ -67,17 +85,14 @@ class MenuTreeItem extends Component {
 
   componentDidUpdate() {
     if (!this.state.isChildStateSet) {
-      this.setState(prevState => {
-        prevState.childState = this.context.getMenuChildState(
-          this.props.localStoreKey
-        );
-        prevState.isChildStateSet = true;
-        return prevState;
+      this.setState({
+        childState: this.context.getMenuChildState(this.props.localStoreKey),
+        isChildStateSet: true
       });
     }
     if (this.context.resetMenuLayout) {
-      if (this.context.resetMenuLayout && !this.state.childState.expanded) {
-        this.toggleExpandedState(true);
+      if (this.context.resetMenuLayout && !this.state.childState!.expanded) {
+        this.toggleExpandedState();
       } else {
         this.setLayout();
       }
@@ -102,24 +117,24 @@ class MenuTreeItem extends Component {
           deviders={false}
         >
           <RotateChild
-            angle={!this.state.childState.expanded ? "-90deg" : "0deg"}
+            angle={!this.state.childState!.expanded ? "-90deg" : "0deg"}
             style={{ marginRight: "4px" }}
           >
             <Poly r={6} sides={3} stroke={"none"} fill={"rgb(255, 100, 255)"} />
           </RotateChild>
-          {this.props.item.title}
+          {this.props.item}
         </MenuItemWrapper>
         <MenuListWrapper
           padding={this.state.padding}
           expanded={
-            this.state.childState.expanded || this.context.resetMenuLayout
+            this.state.childState!.expanded || this.context.resetMenuLayout
           }
-          expandTo={this.state.childState.height}
+          expandTo={this.state.childState!.height}
         >
           {this.props.childItems.map((child, i) => {
             return (
               <MenuItemWrapper
-                key={`${this.props.item.title}-child-${i}`}
+                key={`${this.props.item}-child-${i}`}
                 ref={this.childRefs[i]}
                 deviders={true}
               >

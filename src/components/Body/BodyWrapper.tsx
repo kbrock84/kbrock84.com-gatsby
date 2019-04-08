@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-const BodyWrapper = styled.div`
+const BodyWrapper = styled.div<{
+  readonly mobile: boolean;
+}>`
   background-color: #eeeeee;
   display: grid;
   width: 100vw;
   grid-template-columns: auto;
-  grid-gap: ${props => (props.isHome ? "32px" : "0")};
   ${props => (props.mobile ? "padding-top: 70px;" : "padding-left: 78px")}
 `;
 
