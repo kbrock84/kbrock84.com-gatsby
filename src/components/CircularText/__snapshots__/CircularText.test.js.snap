@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    style="color: rgb(255, 0, 255); display: flex; flex-direction: row; justify-content: center; align-items: center;"
+  >
+    <div
+      style="position: relative; height: 200px; width: 200px;"
+    >
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(0deg);"
+      >
+        r
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-2.5deg);"
+      >
+        e
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-5deg);"
+      >
+        n
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-7.5deg);"
+      >
+        d
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-10deg);"
+      >
+        e
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-12.5deg);"
+      >
+        r
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-15deg);"
+      >
+         
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-17.5deg);"
+      >
+        t
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-20deg);"
+      >
+        h
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-22.5deg);"
+      >
+        i
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-25deg);"
+      >
+        s
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-27.5deg);"
+      >
+         
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-30deg);"
+      >
+        i
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-32.5deg);"
+      >
+        n
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-35deg);"
+      >
+         
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-37.5deg);"
+      >
+        a
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-40deg);"
+      >
+         
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-42.5deg);"
+      >
+        c
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-45deg);"
+      >
+        i
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-47.5deg);"
+      >
+        r
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-50deg);"
+      >
+        c
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-52.5deg);"
+      >
+        l
+      </div>
+      <div
+        class="sc-bdVaJa klusQH"
+        r="100"
+        style="transform: translate(96px, 100px)
+                rotate(-55deg);"
+      >
+        e
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
