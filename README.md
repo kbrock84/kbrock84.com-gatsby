@@ -1,7 +1,7 @@
 # kbrock84.com
 ### My personal site built with Gatsbyjs
 
-[![Build Status](https://travis-ci.com/kbrock84/kbrock84.com-gatsby.svg?branch=master)](https://travis-ci.com/kbrock84/kbrock84.com-gatsby)
+[![Build Status](https://travis-ci.com/kbrock84/kbrock84.com-gatsby.svg?branch=master)](https://travis-ci.com/kbrock84/kbrock84.com-gatsby) [![Maintainability](https://api.codeclimate.com/v1/badges/850078264a7154d7072a/maintainability)](https://codeclimate.com/github/kbrock84/kbrock84.com-gatsby/maintainability)
 
 This website is in the works. The code base is currently a bit messy.
 
