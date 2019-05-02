@@ -1,194 +1,172 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders 1`] = `
+exports[`<CircularText /> Matches the previous accepted snapshot. 1`] = `
 <DocumentFragment>
   <div
     style="color: rgb(255, 0, 255); display: flex; flex-direction: row; justify-content: center; align-items: center;"
   >
     <div
+      data-testid="test-letter-container"
       style="position: relative; height: 200px; width: 200px;"
     >
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(0deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         r
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-2.5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         e
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         n
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-7.5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         d
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-10deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         e
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-12.5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         r
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-15deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
          
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-17.5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         t
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-20deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         h
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-22.5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         i
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-25deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         s
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-27.5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
          
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-30deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         i
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-32.5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         n
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-35deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
          
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-37.5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         a
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-40deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
          
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-42.5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         c
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-45deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         i
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-47.5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         r
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-50deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         c
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-52.5deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         l
       </div>
       <div
         class="sc-bdVaJa klusQH"
         r="100"
-        style="transform: translate(96px, 100px)
-                rotate(-55deg);"
+        style="transform: translate(96px, 100px) rotate(NaNdeg);"
       >
         e
       </div>

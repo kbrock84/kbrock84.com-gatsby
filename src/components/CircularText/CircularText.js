@@ -18,15 +18,16 @@ const CircularText = props => {
           height: `${props.r * 2}px`,
           width: `${props.r * 2}px`
         }}
+        data-testid="test-letter-container"
       >
         {props.text.split("").map((char, index) => (
           <LetterContainer
             key={`circular-text-${index}`}
             r={props.r}
             style={{
-              transform: `
-               translate(${props.r - 4}px, ${props.r}px)
-                rotate(${2.5 * index * -1}deg)`
+              transform:
+                `translate(${props.r - 4}px, ${props.r}px) ` +
+                `rotate(${props.offset * index * -1}deg)`
             }}
             fontSize={props.fontSize}
           >
