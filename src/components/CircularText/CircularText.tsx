@@ -1,7 +1,14 @@
-import React from "react";
+import * as React from "react";
 import LetterContainer from "./LetterContainer";
 
-const CircularText = props => {
+const CircularText: React.FunctionComponent<{
+  r: number;
+  text: string;
+  offset?: number;
+  fontSize?: string;
+}> = props => {
+  const offset: number = props.offset || 2.5;
+  const fontSize: string = props.fontSize || "1em";
   return (
     <div
       style={{
@@ -27,9 +34,9 @@ const CircularText = props => {
             style={{
               transform:
                 `translate(${props.r - 4}px, ${props.r}px) ` +
-                `rotate(${props.offset * index * -1}deg)`
+                `rotate(${offset * index * -1}deg)`
             }}
-            fontSize={props.fontSize}
+            fontSize={fontSize}
           >
             {char}
           </LetterContainer>
