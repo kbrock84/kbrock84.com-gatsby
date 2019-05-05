@@ -43,7 +43,7 @@ describe("<CircularText />", () => {
 
   it("rotates the div counter-clockwise using the offset prop", () => {
     const { getByTestId } = render(
-      <CircularText r={100} text="render this in a circle" />
+      <CircularText r={100} text="render this in a circle" offset={10} />
     );
 
     const container = getByTestId("test-letter-container");
@@ -66,17 +66,5 @@ describe("<CircularText />", () => {
       const isRotated = pattern.test(div.transform as string);
       expect(isRotated).toBe(true);
     });
-  });
-
-  it("throws error without props.r", () => {
-    expect(() =>
-      render(<CircularText r={100} text="render this in a circle" />)
-    ).toThrow();
-  });
-
-  it("throws error without props.text", () => {
-    expect(() =>
-      render(<CircularText r={100} text="render this in a circle" />)
-    ).toThrow();
   });
 });
