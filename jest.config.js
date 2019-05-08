@@ -16,5 +16,13 @@ module.exports = {
   },
   testURL: `http://localhost`,
   setupFiles: [`<rootDir>/loadershim.js`],
-  setupFilesAfterEnv: [`<rootDir>/jest.setup.js`]
+  setupFilesAfterEnv: [`<rootDir>/jest.setup.js`],
+  collectCoverageFrom: [
+    "<rootDir>/src/components/**",
+    "!**/node_modules/**",
+    "!**/__coverage__/**",
+    "!**/public/**"
+  ],
+  coverageDirectory: "<rootDir>/__coverage__/",
+  coverageReporters: ["lcov", "text"]
 };

@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-const LetterContainer = styled.div`
+const LetterContainer = styled.div<{
+  readonly fontSize: string;
+  readonly r: number;
+}>`
   position: absolute;
   margin: 0;
   padding: 0;
@@ -13,7 +16,6 @@ const LetterContainer = styled.div`
   flex-direction: column-reverse;
   align-items: center;
   height: ${props => props.r}px;
-  color: ${props => props.color};
   transform-origin: top center;
 `;
 
