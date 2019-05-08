@@ -7,7 +7,7 @@ const ExpandOnHover = posed.div({
     scale: 1
   },
   hover: {
-    transition: { type: "spring", stiffness: "350", mass: 1, damping: 12 },
+    transition: { type: "spring", stiffness: 350, mass: 1, damping: 12 },
     scale: 1.2
   },
   press: {
