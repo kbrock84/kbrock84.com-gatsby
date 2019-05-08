@@ -41,30 +41,27 @@ describe("<CircularText />", () => {
     });
   });
 
+  const expectAngleToBe = (degrees: number, getByTestId: any) => {
+    const container = getByTestId("test-letter-container");
+    container.childNodes.forEach((node: HTMLElement, i: number) => {
+      const div = getComputedStyle(node as Element);
+      const pattern = new RegExp(`.*rotate\\(${i * degrees * -1}deg\\).*`);
+      const isRotated = pattern.test(div.transform as string);
+      expect(isRotated).toBe(true);
+    });
+  };
+
   it("rotates the div counter-clockwise using the offset prop", () => {
     const { getByTestId } = render(
       <CircularText r={100} text="render this in a circle" offset={10} />
     );
-
-    const container = getByTestId("test-letter-container");
-    container.childNodes.forEach((node, i) => {
-      const div = getComputedStyle(node as Element);
-      const pattern = new RegExp(`.*rotate\\(${i * 10 * -1}deg\\).*`);
-      const isRotated = pattern.test(div.transform as string);
-      expect(isRotated).toBe(true);
-    });
+    expectAngleToBe(10, getByTestId);
   });
 
   it("has default value of 2.5 for props.offset", () => {
     const { getByTestId } = render(
       <CircularText r={100} text="render this in a circle" />
     );
-    const container = getByTestId("test-letter-container");
-    container.childNodes.forEach((node, i) => {
-      const div = getComputedStyle(node as Element);
-      const pattern = new RegExp(`.*rotate\\(${i * 2.5 * -1}deg\\).*`);
-      const isRotated = pattern.test(div.transform as string);
-      expect(isRotated).toBe(true);
-    });
+    expectAngleToBe(2.5, getByTestId);
   });
 });
