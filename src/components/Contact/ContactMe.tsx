@@ -1,5 +1,4 @@
 import React, { useContext, useState, useLayoutEffect } from "react";
-import styled from "styled-components";
 import KevinTitle from "../KevinTitle/KevinTitle";
 import { PageContext } from "../../PageContext/PageContext";
 import posed from "react-pose";
@@ -8,44 +7,14 @@ import PopIn from "../../Animations/PopIn";
 import ExpandOnHover from "../../Animations/ExpandOnHover";
 import GithubImage from "../GithubImage";
 import TwitterImage from "../TwitterImage";
-
-const ContactWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  overflow-y: scroll;
-  background-color: #080808;
-  color: #ff00ee;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ContactCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 700px;
-  ${props => (props.mobile ? "" : "padding-left: 16px")}
-`;
+import ContactCard from "./ContactCard";
+import ContactWrapper from "./ContactWrapper";
+import TypeTextWrapper from "./TypeTextWrapper";
 
 const TansitionColor = posed.div({
   transitionEnter: { color: "#ff00ee", fontSize: 1.3, delay: 200 },
   original: { color: "#00ffff" }
 });
-
-const TypeTextWrapper = styled.div`
-  color: #00ffff;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  code {
-    font-size: 0.9em;
-  }
-`;
 
 const ContactMe = () => {
   const context = useContext(PageContext);
