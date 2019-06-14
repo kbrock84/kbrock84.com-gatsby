@@ -2,5 +2,9 @@
   {
     "type": "internal",
     "label": "Regular Expressions"
+  },
+  {
+    "type": "internal",
+    "label": "Debugging"
   }
 ]
