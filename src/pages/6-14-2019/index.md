@@ -17,8 +17,6 @@ keywords:
   ]
 ---
 
-# GitHub Driven Debugging
-
 These days, there are many tools at your disposal for debugging, no matter what your stack is. But after hours of no results, sometimes you need to look beyond your code to understand... your code.
 
 GitHub is huge, and almost all of the open source projects I use are hosted on it. This is _my_ process for debugging issues via GitHub.
